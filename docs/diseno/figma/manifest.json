@@ -1,0 +1,117 @@
+{
+  "file_key": "SkLhTgi4i22kRbrJtTWN4w",
+  "exported_on": "2026-10-17",
+  "format": "PNG",
+  "scale": 1,
+  "screens": [
+    {
+      "title": "Inicio",
+      "node_id": "3:3",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-3",
+      "path": "png/01-inicio.png",
+      "width": 1280,
+      "height": 1536,
+      "sha256": "2b91dd35d42480f0bdcf7833e4a509448c4bb2ef3a78b0a8451fa2b5f15980f2"
+    },
+    {
+      "title": "Catálogo y búsqueda",
+      "node_id": "3:4",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-4",
+      "path": "png/02-catalogo.png",
+      "width": 1280,
+      "height": 1592,
+      "sha256": "1e86f1309c77e0752e1438aff2f58f26f286a8a0acc5d2121387cb64d6e7c44d"
+    },
+    {
+      "title": "Detalle de vino",
+      "node_id": "3:5",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-5",
+      "path": "png/03-detalle-vino.png",
+      "width": 1280,
+      "height": 1067,
+      "sha256": "78ae3244b89a22c2fbe3403908bb850af193b4ef3de8253c290447fc2d37f075"
+    },
+    {
+      "title": "Detalle de accesorio",
+      "node_id": "3:6",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-6",
+      "path": "png/04-detalle-accesorio.png",
+      "width": 1280,
+      "height": 1035,
+      "sha256": "f000c10b7b21e633c19ab12c102c936e7ae075c63c76e0e86ec506e5d20e04d2"
+    },
+    {
+      "title": "Carrito",
+      "node_id": "3:7",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-7",
+      "path": "png/05-carrito.png",
+      "width": 1280,
+      "height": 949,
+      "sha256": "f2d6aefe0b6fb61b6716084aed098434b3e1da2393fc9023cf1cccb2cb52a374"
+    },
+    {
+      "title": "Finalizar pedido",
+      "node_id": "3:8",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-8",
+      "path": "png/06-finalizar-pedido.png",
+      "width": 1280,
+      "height": 1357,
+      "sha256": "ec7345ea6f8fefa29e174e8fb7501f5c9bbef1166fd8373b74143cb2c7415205"
+    },
+    {
+      "title": "Pedido confirmado",
+      "node_id": "3:9",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-9",
+      "path": "png/07-pedido-confirmado.png",
+      "width": 1280,
+      "height": 933,
+      "sha256": "75c09eb9934cb4865ef4a685f9df5c8c32119ec8eacf9e4f4dba565f630066a3"
+    },
+    {
+      "title": "Iniciar sesión",
+      "node_id": "3:12",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-12",
+      "path": "png/08-iniciar-sesion.png",
+      "width": 1280,
+      "height": 983,
+      "sha256": "c624592e08bb17ed87af853631588fc2c8853195443d6db241875a1578b1cc36"
+    },
+    {
+      "title": "Crear cuenta",
+      "node_id": "3:13",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-13",
+      "path": "png/09-crear-cuenta.png",
+      "width": 1280,
+      "height": 1037,
+      "sha256": "ce6d7d5387bf30c69cd8eafe7580ad7c52a205c04bb8f1a0dcfed8a10e3a7cf0"
+    },
+    {
+      "title": "Recuperar contraseña",
+      "node_id": "3:14",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-14",
+      "path": "png/10-recuperar-contrasena.png",
+      "width": 1280,
+      "height": 983,
+      "sha256": "1ffd448a26ce0ca3071ccb3a9da2f557ab872fe0db0d379671cbb3ddc8a792b5"
+    },
+    {
+      "title": "Configuración de cuenta",
+      "node_id": "3:15",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-15",
+      "path": "png/11-configuracion-cuenta.png",
+      "width": 1280,
+      "height": 1275,
+      "sha256": "fec247a553f7189c2e26b1da1201c498090a308aa5ddc0d2f0ac5fb7e45a1e06"
+    },
+    {
+      "title": "Ayuda y contacto",
+      "node_id": "3:10",
+      "figma_url": "https://www.figma.com/design/SkLhTgi4i22kRbrJtTWN4w?node-id=3-10",
+      "path": "png/15-ayuda-contacto.png",
+      "width": 1280,
+      "height": 983,
+      "sha256": "52baace185c09c68080fd84c895b67f9cf58cadbbebdfade6084eba43cf3c81a"
+    }
+  ],
+  "pending_screen_count": 12
+}
