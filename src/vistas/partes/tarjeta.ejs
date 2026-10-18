@@ -1,0 +1,10 @@
+<%# Tarjeta de producto. Recibe `p`, un resumen de inicio.productosDestacados[] o catalogo.productos[]. %>
+<article class="tarjeta">
+  <div class="tarjeta__imagen"><img src="<%= p.imagen %>" alt="" width="120" height="160" loading="lazy"></div>
+  <p class="etiqueta"><%= v.etiqueta(p) %></p>
+  <h3 class="tarjeta__nombre"><%= p.nombre %></h3>
+  <p class="tarjeta__detalle"><%= v.subtitulo(p, { conOrigen: locals.conOrigen }) %></p>
+  <p class="tarjeta__precio"><%= v.precio(p.precio) %></p>
+  <% if (p.disponible === false) { %><p class="tarjeta__sin-stock">Sin stock por el momento</p><% } %>
+  <a class="boton boton--borde boton--ancho" href="/productos/<%= p.productoId %>">Ver producto</a>
+</article>

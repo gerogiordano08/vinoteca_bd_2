@@ -1,0 +1,87 @@
+<%- include('partes/cabecera') %>
+<%# Todo lo que se muestra sale del documento de la colección catalogo del usuario o visitante. %>
+<% const c = pagina.consulta; const pg = pagina.paginacion; %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Nuestro catálogo</h1>
+  <p class="bajada">Vinos, espumantes y accesorios para encontrar lo que buscás.</p>
+
+  <form class="catalogo" action="/catalogo" method="get">
+    <div class="catalogo__barra">
+      <div class="campo">
+        <label for="texto">Buscar productos</label>
+        <input id="texto" type="search" name="texto" placeholder="Malbec, bodega o accesorio…" value="<%= c.texto || '' %>">
+      </div>
+      <div class="campo">
+        <label for="orden">Ordenar por</label>
+        <select id="orden" name="orden" onchange="this.form.submit()">
+          <% [['destacados', 'Destacados'], ['precio_asc', 'Menor precio'], ['precio_desc', 'Mayor precio'], ['nombre_asc', 'Nombre de A a Z']].forEach(([valor, texto]) => { %>
+            <option value="<%= valor %>" <%= c.orden === valor ? 'selected' : '' %>><%= texto %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+
+    <div class="catalogo__cuerpo">
+      <aside class="filtros panel" aria-label="Filtros">
+        <h2 class="filtros__titulo">Filtrar</h2>
+        <fieldset>
+          <legend>Categoría</legend>
+          <% pagina.categorias.forEach((cat) => { %>
+            <label class="opcion"><input type="checkbox" name="categoria" value="<%= cat.slug %>" <%= seleccion.categorias.has(String(cat.categoriaId)) ? 'checked' : '' %>> <%= cat.nombre %></label>
+          <% }) %>
+        </fieldset>
+        <% if (pagina.opcionesFiltro.colores.length) { %>
+        <fieldset>
+          <legend>Tipo de vino</legend>
+          <% pagina.opcionesFiltro.colores.forEach((color) => { %>
+            <label class="opcion"><input type="checkbox" name="color" value="<%= color %>" <%= seleccion.colores.has(color) ? 'checked' : '' %>> <%= color %></label>
+          <% }) %>
+        </fieldset>
+        <% } %>
+        <% if (pagina.opcionesFiltro.varietales.length) { %>
+        <fieldset>
+          <legend>Varietal</legend>
+          <% pagina.opcionesFiltro.varietales.forEach((varietal) => { %>
+            <label class="opcion"><input type="checkbox" name="varietal" value="<%= varietal %>" <%= seleccion.varietales.has(varietal) ? 'checked' : '' %>> <%= varietal %></label>
+          <% }) %>
+        </fieldset>
+        <% } %>
+        <div class="campo">
+          <label for="precioMin">Precio mínimo</label>
+          <input id="precioMin" name="precioMin" inputmode="numeric" placeholder="$ 0" value="<%= seleccion.precioMin %>">
+        </div>
+        <div class="campo">
+          <label for="precioMax">Precio máximo</label>
+          <input id="precioMax" name="precioMax" inputmode="numeric" placeholder="$ 50.000" value="<%= seleccion.precioMax %>">
+        </div>
+        <button class="boton boton--principal boton--ancho" type="submit">Aplicar filtros</button>
+        <a class="enlace" href="/catalogo?limpiar=1">Limpiar filtros</a>
+      </aside>
+
+      <div class="resultados">
+        <p class="texto-suave"><%= v.plural(pg.totalProductos, 'producto', 'productos') %></p>
+        <% if (pagina.productos.length) { %>
+          <div class="grilla grilla--3">
+            <% pagina.productos.forEach((p) => { %><%- include('partes/tarjeta', { p, conOrigen: true }) %><% }) %>
+          </div>
+        <% } else { %>
+          <div class="panel vacio">
+            <p>No encontramos productos con esa búsqueda.</p>
+            <a class="enlace" href="/catalogo?limpiar=1">Ver todo el catálogo</a>
+          </div>
+        <% } %>
+
+        <% if (pg.totalPaginas > 1) { %>
+          <nav class="paginacion" aria-label="Páginas de resultados">
+            <% if (pg.paginaActual > 1) { %><a class="boton boton--borde" href="<%= enlacePagina(pg.paginaActual - 1) %>">← Anterior</a><% } %>
+            <% for (let n = 1; n <= pg.totalPaginas; n++) { %>
+              <a class="paginacion__numero <%= n === pg.paginaActual ? 'paginacion__numero--actual' : '' %>" href="<%= enlacePagina(n) %>" <%- n === pg.paginaActual ? 'aria-current="page"' : '' %>><%= n %></a>
+            <% } %>
+            <% if (pg.paginaActual < pg.totalPaginas) { %><a class="boton boton--borde" href="<%= enlacePagina(pg.paginaActual + 1) %>">Siguiente →</a><% } %>
+          </nav>
+        <% } %>
+      </div>
+    </div>
+  </form>
+</section>
+<%- include('partes/pie') %>

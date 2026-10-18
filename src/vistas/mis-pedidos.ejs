@@ -1,0 +1,30 @@
+<%- include('partes/cabecera') %>
+<%# Pantalla pendiente de diseño en Figma: se arma con los mismos componentes que Configuración de cuenta. %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Mis pedidos</h1>
+  <p class="bajada">Consultá el estado y el detalle de cada compra.</p>
+  <div class="cuenta">
+    <%- include('partes/menu-cuenta') %>
+    <div class="panel">
+      <% if (!pedidos.length) { %>
+        <p class="texto-suave">Todavía no hiciste pedidos.</p>
+        <a class="boton boton--principal" href="/catalogo">Explorar el catálogo</a>
+      <% } else { %>
+        <table class="tabla">
+          <thead><tr><th>Pedido</th><th>Fecha</th><th>Estado</th><th class="derecha">Total</th></tr></thead>
+          <tbody>
+            <% pedidos.forEach((p) => { %>
+              <tr>
+                <td><a class="enlace" href="/cuenta/pedidos/<%= p.numero %>">#<%= p.numero %></a></td>
+                <td><%= v.fecha(p.creadoEn) %></td>
+                <td><span class="estado estado--<%= p.estadoPedido === 'cancelado' ? 'no' : 'ok' %>"><%= estados[p.estadoPedido] %></span></td>
+                <td class="derecha"><%= v.precio(p.total) %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } %>
+    </div>
+  </div>
+</section>
+<%- include('partes/pie') %>

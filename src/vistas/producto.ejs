@@ -1,0 +1,63 @@
+<%- include('partes/cabecera') %>
+<% const p = producto; const vino = p.detalleVino; const acc = p.detalleAccesorio; %>
+<section class="contenedor seccion">
+  <nav class="migas" aria-label="Ubicación">
+    <a href="/">Inicio</a> / <a href="/catalogo">Catálogo</a> / <a href="/catalogo?categoria=<%= p.categoria.slug %>"><%= p.categoria.nombre %></a>
+  </nav>
+  <div class="detalle">
+    <div class="detalle__imagen"><img src="<%= (p.imagenes && p.imagenes[0]) || '/img/productos/accesorio.svg' %>" alt="<%= p.nombre %>" width="140" height="200"></div>
+    <div class="detalle__info">
+      <p class="etiqueta">
+        <% if (vino) { %><%= p.categoria.slug === 'espumantes' ? 'Espumante' : `Vino ${vino.color.toLowerCase()}` %> · <%= vino.origenProvincia %>
+        <% } else { %>Accesorio<% if (acc && acc.material) { %> · <%= acc.material %><% } %><% } %>
+      </p>
+      <h1 class="detalle__nombre"><%= p.nombre %></h1>
+      <p class="detalle__bajada">
+        <% if (vino) { %><%= p.bodega ? p.bodega.nombre : 'Bodega' %><% if (vino.cosecha) { %> · Cosecha <%= vino.cosecha %><% } %>
+        <% } else { %><%= p.descripcionCorta %><% } %>
+      </p>
+      <p class="detalle__precio"><%= v.precio(p.precio) %></p>
+      <% if (p.stockActual > 0) { %>
+        <p class="estado estado--ok">Disponible · <%= v.plural(p.stockActual, 'unidad', 'unidades') %></p>
+      <% } else { %>
+        <p class="estado estado--no">Sin stock por el momento</p>
+      <% } %>
+      <p class="detalle__descripcion"><%= vino ? p.descripcionCorta : p.descripcion %></p>
+
+      <% if (p.stockActual > 0) { %>
+      <form class="agregar" action="/carrito/agregar" method="post">
+        <input type="hidden" name="productoId" value="<%= p._id %>">
+        <input type="hidden" name="volverA" value="/carrito">
+        <div class="cantidad" data-cantidad>
+          <button type="button" data-restar aria-label="Restar una unidad">−</button>
+          <input name="cantidad" type="number" min="1" max="<%= Math.min(p.stockActual, 24) %>" value="1" aria-label="Cantidad">
+          <button type="button" data-sumar aria-label="Sumar una unidad">+</button>
+        </div>
+        <button class="boton boton--principal" type="submit">Agregar al carrito</button>
+      </form>
+      <% } %>
+
+      <div class="panel caracteristicas">
+        <h2>Características</h2>
+        <dl>
+          <% if (vino) { %>
+            <div><dt>Varietal</dt><dd><%= vino.varietal %></dd></div>
+            <div><dt>Región</dt><dd><%= vino.origenZona ? `${vino.origenZona}, ` : '' %><%= vino.origenProvincia %>, Argentina</dd></div>
+            <% if (vino.cosecha) { %><div><dt>Añada</dt><dd><%= vino.cosecha %></dd></div><% } %>
+            <div><dt>Volumen</dt><dd><%= vino.contenidoMl %> ml</dd></div>
+            <% if (vino.graduacionAlcohol) { %><div><dt>Graduación</dt><dd><%= String(v.numero(vino.graduacionAlcohol)).replace('.', ',') %> %</dd></div><% } %>
+            <% if (vino.estiloEspumante) { %><div><dt>Estilo</dt><dd><%= vino.estiloEspumante %></dd></div><% } %>
+            <% if (vino.temperaturaServicio) { %><div><dt>Temperatura de servicio</dt><dd><%= vino.temperaturaServicio %></dd></div><% } %>
+            <% if (vino.maridajes && vino.maridajes.length) { %><div><dt>Maridaje</dt><dd><%= vino.maridajes.join(', ') %></dd></div><% } %>
+          <% } else if (acc) { %>
+            <div><dt>Material</dt><dd><%= acc.material %></dd></div>
+            <% filasAccesorio.forEach((f) => { %><div><dt><%= f.clave %></dt><dd><%= f.valor %></dd></div><% }) %>
+            <div><dt>Presentación</dt><dd><%= acc.unidadVenta %></dd></div>
+          <% } %>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="/js/cantidad.js" defer></script>
+<%- include('partes/pie') %>

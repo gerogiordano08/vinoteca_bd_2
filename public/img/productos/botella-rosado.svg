@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 200" width="80" height="200">
+<ellipse cx="40" cy="186" rx="34" ry="6" fill="#ddd2c4"/>
+<rect x="28" y="8" width="24" height="36" fill="#7a2840"/>
+<path d="M30 44h20v22c0 8 18 14 18 30v80a4 4 0 0 1-4 4H16a4 4 0 0 1-4-4V96c0-16 18-22 18-30z" fill="#c98a93"/>
+<rect x="16" y="102" width="48" height="56" fill="#f7f1e8"/>
+<line x1="24" y1="110" x2="56" y2="110" stroke="#c9b8a4" stroke-width="1.5"/>
+<line x1="24" y1="150" x2="56" y2="150" stroke="#c9b8a4" stroke-width="1.5"/>
+<text x="40" y="138" font-family="Georgia, serif" font-size="22" fill="#7a2840" text-anchor="middle">V</text></svg>

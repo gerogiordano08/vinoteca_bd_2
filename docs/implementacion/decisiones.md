@@ -1,0 +1,25 @@
+# Decisiones de implementación
+
+El modelo (`docs/Modelo_Vinoteca_MongoDB_Diseno_Editorial_Actualizado.docx`) deja algunos puntos pendientes. Para que la aplicación funcione se tomaron las decisiones de abajo. Son propuestas: si el equipo prefiere otra opción, se cambian en el lugar indicado.
+
+| Punto pendiente en el modelo | Decisión | Dónde se cambia |
+| --- | --- | --- |
+| Obligatoriedad general de los atributos | Solo se exigen los campos sin los cuales la aplicación no funciona (por ejemplo, `sku`, `nombre`, `precio`, `categoriaId`, `tipoProducto`, `stockActual` y `activo` en productos). El resto se valida por tipo cuando está presente. | `src/db/esquemas.js` |
+| Cantidad de productos por página del Catálogo | 12 (4 filas de 3). Con los 24 productos del boceto quedan 2 páginas, como muestra la paginación de Figma. | `src/config.js` o la variable `PRODUCTOS_POR_PAGINA` |
+| Regla exacta de `disponible` | `activo = true`, `stockActual > 0` y categoría activa. Los productos sin stock se muestran con el aviso "Sin stock por el momento". | `esDisponible` en `src/servicios/resumenes.js` |
+| Estructura de `pedidos.direccionEntrega` | `tipo` (`retiro` o `envio`), `contacto` (nombre, apellido, correo y teléfono del paso 1 de Finalizar pedido), `notas` y, para envíos, los mismos campos que `usuarios.direcciones`: `calleNumero`, `localidad`, `provincia`, `codigoPostal` y `referencias`. Así no hace falta agregar atributos a pedidos. | `src/db/esquemas.js` y `src/servicios/pedidos.js` |
+| `configuracion_tienda.direccionComercial` | `calleNumero`, `localidad`, `provincia`, `codigoPostal` y `horario`. | `src/db/esquemas.js` |
+| `configuracion_tienda.redesSociales` | `instagram`, `facebook` y `whatsapp`, como URL. | `src/db/esquemas.js` |
+| Valores de `estadoPedido` | `pendiente`, `confirmado`, `listo_para_retirar`, `enviado`, `entregado` y `cancelado`. Un pedido nuevo queda `pendiente`. | `src/db/esquemas.js` y `src/servicios/pedidos.js` |
+
+## Otras decisiones
+
+- **Driver oficial de MongoDB, sin Mongoose.** Las consultas, agregaciones y validadores quedan escritos tal como se ven en clase y en mongosh.
+- **Destacados en orden alfabético.** El boceto muestra Malbec Reserva primero, pero el modelo fija el orden por nombre y luego por `_id`. Se respeta el modelo: Brut Nature, Chardonnay Joven, Copa de cristal y Malbec Reserva.
+- **Búsqueda.** El cuadro "Malbec, bodega o accesorio…" busca por nombre de bodega si el texto la nombra; si no, usa el índice de texto en español (`busqueda_texto`), que reconoce raíces de palabras ("copas" encuentra "copa").
+- **Características de los accesorios.** El boceto muestra Capacidad y Cuidado, que el modelo no tiene como atributos. Se guardan en `detalleAccesorio.detalles` con el formato `Capacidad: 450 ml; Cuidado: Lavado a mano`, y la vista arma la tabla con esos pares.
+- **Pago.** El boceto tiene un único medio, "Pago al retirar", de ejemplo. No se guarda un atributo de pago: la confirmación lo muestra como pendiente.
+- **Sin transacciones multidocumento.** El MongoDB local es una instancia sola, sin replica set. Al confirmar un pedido, el stock se descuenta con una actualización condicional por producto (`stockActual: { $gte: cantidad }`), que es atómica en cada documento. Si uno no alcanza, se devuelve lo descontado. Con un replica set o MongoDB Atlas se puede pasar a una transacción.
+- **Documentos de visitantes.** Al iniciar sesión se borran las páginas del visitante, porque el modelo indica que se pasan a usar las del usuario registrado.
+- **Recuperar contraseña y contacto.** El proyecto no envía correos. Recuperar contraseña lo explica en pantalla. El formulario de contacto abre el programa de correo con la consulta dirigida al `emailContacto` de la tienda, porque el modelo no tiene una colección de consultas.
+- **Pantallas pendientes de diseño.** Direcciones, Mis pedidos y Detalle de pedido se armaron con los componentes de Configuración de cuenta. La administración y las adaptaciones móviles siguen pendientes. La hoja de estilos ya se adapta a pantallas chicas.

@@ -1,0 +1,18 @@
+<%- include('partes/cabecera') %>
+<section class="contenedor seccion acceso">
+  <%- include('partes/bienvenida') %>
+  <form class="panel acceso__formulario" action="/cuenta/recuperar" method="post">
+    <h1 class="titulo-pagina">Recuperá tu acceso</h1>
+    <p class="bajada">Te enviaremos un enlace para restablecer tu contraseña.</p>
+    <div class="campo"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com"></div>
+    <button class="boton boton--principal boton--ancho" type="submit">Enviar enlace</button>
+    <a class="enlace" href="/cuenta/ingresar">Volver a iniciar sesión</a>
+    <% if (enviado) { %>
+      <div class="caja caja--aviso" role="status">
+        <p class="caja__titulo">El envío de correos todavía no está disponible</p>
+        <p>En esta versión del proyecto no se envían correos. Para restablecer tu contraseña, escribinos desde <a href="/ayuda">Ayuda y contacto</a>.</p>
+      </div>
+    <% } %>
+  </form>
+</section>
+<%- include('partes/pie') %>

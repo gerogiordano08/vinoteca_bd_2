@@ -218,3 +218,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Node.js (aplicación Express)
+node_modules/
+npm-debug.log*
+
+# Backups locales de la base (scripts/backup.js)
+backups/
