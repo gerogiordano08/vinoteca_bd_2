@@ -1,5 +1,4 @@
 const path = require('node:path');
-const crypto = require('node:crypto');
 const express = require('express');
 const session = require('express-session');
 const config = require('./config');
@@ -30,14 +29,21 @@ function crearApp() {
     }),
   );
 
-  // Identificación del modelo: usuario registrado o sesión de visitante (visitanteId).
+  // Solo los usuarios registrados y existentes tienen páginas persistidas.
   app.use(async (req, res, next) => {
     try {
       const db = obtenerBase();
       req.db = db;
-      if (!req.session.usuarioId && !req.session.visitanteId) req.session.visitanteId = crypto.randomUUID();
       req.usuarioId = req.session.usuarioId ? vistas.aId(req.session.usuarioId) : null;
-      req.propietario = req.usuarioId ? { usuarioId: req.usuarioId } : { visitanteId: req.session.visitanteId };
+      const usuario = req.usuarioId ? await db.collection('usuarios').findOne({ _id: req.usuarioId, activo: true }, { projection: { _id: 1 } }) : null;
+      if (!usuario) {
+        req.usuarioId = null;
+        delete req.session.usuarioId;
+        delete req.session.nombre;
+        delete req.session.rol;
+      }
+      delete req.session.visitanteId;
+      req.propietario = req.usuarioId ? { usuarioId: req.usuarioId } : {};
 
       res.locals.v = vistas;
       res.locals.sesion = req.session.usuarioId ? { nombre: req.session.nombre, rol: req.session.rol } : null;

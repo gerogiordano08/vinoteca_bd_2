@@ -1,4 +1,4 @@
-<%# Tarjeta de producto. Recibe `p`, un resumen de inicio.productosDestacados[] o catalogo.productos[]. %>
+<%# Recibe `p`: copia de Inicio o resultado transitorio de la consulta del Catálogo. %>
 <article class="tarjeta">
   <div class="tarjeta__imagen"><img src="<%= p.imagen %>" alt="" width="120" height="160" loading="lazy"></div>
   <p class="etiqueta"><%= v.etiqueta(p) %></p>

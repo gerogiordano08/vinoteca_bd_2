@@ -38,18 +38,12 @@ const indices = {
     { key: { estadoPedido: 1, creadoEn: -1 }, name: 'pedidos_por_estado' },
   ],
   inicio: [
-    // Un documento de Inicio por usuario registrado y uno por visitante.
+    // Un documento de Inicio por usuario registrado.
     {
       key: { 'usuario.usuarioId': 1 },
       name: 'inicio_por_usuario',
       unique: true,
       partialFilterExpression: { 'usuario.usuarioId': { $exists: true } },
-    },
-    {
-      key: { visitanteId: 1 },
-      name: 'inicio_por_visitante',
-      unique: true,
-      partialFilterExpression: { visitanteId: { $exists: true } },
     },
     // Sincronización: ubicar las copias afectadas por un cambio en productos o categorías.
     { key: { 'productosDestacados.productoId': 1 }, name: 'inicio_por_producto' },
@@ -62,13 +56,6 @@ const indices = {
       unique: true,
       partialFilterExpression: { 'usuario.usuarioId': { $exists: true } },
     },
-    {
-      key: { visitanteId: 1 },
-      name: 'catalogo_por_visitante',
-      unique: true,
-      partialFilterExpression: { visitanteId: { $exists: true } },
-    },
-    { key: { 'productos.productoId': 1 }, name: 'catalogo_por_producto' },
     { key: { 'categorias.categoriaId': 1 }, name: 'catalogo_por_categoria' },
   ],
 };

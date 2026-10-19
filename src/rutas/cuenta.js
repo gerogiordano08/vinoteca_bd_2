@@ -1,7 +1,6 @@
 const express = require('express');
 const usuarios = require('../servicios/usuarios');
 const pedidos = require('../servicios/pedidos');
-const { descartarPaginasDeVisitante } = require('../servicios/paginas');
 const { requiereSesion, avisar, destinoSeguro } = require('./comunes');
 
 const router = express.Router();
@@ -9,7 +8,6 @@ const { ErrorDeValidacion } = usuarios;
 
 /** Inicia la sesión del usuario. Se regenera el id de sesión para evitar fijación de sesión. */
 function iniciarSesion(req, usuario) {
-  const visitanteId = req.session.visitanteId;
   const volverA = req.session.volverA;
   return new Promise((resolver, rechazar) => {
     req.session.regenerate(async (error) => {
@@ -17,8 +15,6 @@ function iniciarSesion(req, usuario) {
       req.session.usuarioId = String(usuario._id);
       req.session.nombre = usuario.nombre;
       req.session.rol = usuario.rol;
-      // Al iniciar sesión se pasan a usar los documentos de página del usuario registrado.
-      await descartarPaginasDeVisitante(req.db, visitanteId);
       resolver(volverA);
     });
   });

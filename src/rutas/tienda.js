@@ -7,14 +7,14 @@ const { aObjectId } = require('../util/ids');
 const router = express.Router();
 const PARAMETROS_CATALOGO = ['texto', 'categoria', 'color', 'varietal', 'precioMin', 'precioMax', 'orden', 'pagina'];
 
-// Inicio: un único documento de la colección inicio por usuario o visitante.
+// Inicio: documento por usuario registrado o vista pública sin persistencia.
 router.get('/', async (req, res) => {
   const pagina = await obtenerInicio(req.db, req.propietario);
   res.locals.carrito = pagina.carrito;
   res.render('inicio', { titulo: 'Inicio', pagina });
 });
 
-// Catálogo: búsqueda, filtros, orden y paginación guardados en la colección catalogo.
+// Catálogo guarda la consulta y configuración; los productos se consultan al abrir la página.
 router.get('/catalogo', async (req, res) => {
   const parametros = {};
   for (const clave of PARAMETROS_CATALOGO) if (req.query[clave] !== undefined) parametros[clave] = req.query[clave];

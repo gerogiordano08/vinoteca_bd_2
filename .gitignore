@@ -1,3 +1,16 @@
+# Metadatos del sistema y archivos temporales
+.DS_Store
+._*
+.AppleDouble/
+.LSOverride
+Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
+*.swo
+*~
+~$*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -225,3 +238,6 @@ npm-debug.log*
 
 # Backups locales de la base (scripts/backup.js)
 backups/
+
+# Copias de imágenes generadas por db:volumen
+public/img/productos/volumen/

@@ -24,7 +24,7 @@
       <label class="oculto" for="buscar-cabecera">Buscar un producto</label>
       <input id="buscar-cabecera" type="search" name="texto" placeholder="Buscar un producto…" value="<%= busqueda %>">
     </form>
-    <a class="boton boton--borde" href="<%= sesion ? '/cuenta' : '/cuenta/ingresar' %>"><%= sesion ? 'Mi cuenta' : 'Ingresar' %></a>
+    <a class="boton boton--borde" href="<%= sesion ? '/cuenta' : '/cuenta/ingresar' %>"><%= sesion ? sesion.nombre : 'Ingresar' %></a>
     <a class="boton boton--principal" href="/carrito">Carrito (<%= carrito.cantidadArticulos %>)</a>
   </div>
 </header>

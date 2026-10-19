@@ -30,7 +30,7 @@ async function copiaCategorias(db) {
 }
 
 /**
- * Resumen de producto compartido por inicio.productosDestacados[] y catalogo.productos[].
+ * Resumen de producto para inicio.productosDestacados[] y los resultados transitorios del Catálogo.
  * En el catálogo agrega bodega, disponible y destacado, y detalleVino incluye el varietal.
  */
 function resumenProducto(producto, categoria, { enCatalogo = false, bodega = null } = {}) {
@@ -67,12 +67,16 @@ function esDisponible(producto, categoria) {
 /**
  * Selección de destacados del modelo: hasta cuatro productos con destacado = true, activo = true,
  * stockActual > 0 y categoría activa, ordenados por nombre y luego por _id.
+ * Una página puede guardar una selección explícita de productos en lugar de los destacados generales.
  */
-async function seleccionarDestacados(db) {
+async function seleccionarDestacados(db, seleccionProductoIds) {
   const productos = await db
     .collection('productos')
     .aggregate([
-      { $match: { destacado: true, activo: true, stockActual: { $gt: 0 } } },
+      { $match: {
+        ...(seleccionProductoIds === undefined ? { destacado: true } : { _id: { $in: seleccionProductoIds } }),
+        activo: true, stockActual: { $gt: 0 },
+      } },
       { $lookup: { from: 'categorias', localField: 'categoriaId', foreignField: '_id', as: 'categoria' } },
       { $unwind: '$categoria' },
       { $match: { 'categoria.activa': true } },

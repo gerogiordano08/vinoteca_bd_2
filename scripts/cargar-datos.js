@@ -134,7 +134,7 @@ async function cargar(db, { cantidadClientes = 40, cantidadPedidos = 180, log = 
     })),
   ]);
   log('6 carritos');
-  // inicio y catalogo se construyen solos la primera vez que cada usuario o visitante entra a la página.
+  // inicio y catalogo se guardan al entrar un usuario registrado; los visitantes no persisten páginas.
   return { productos: productos.length, usuarios: usuarios.length, pedidos: pedidos.length };
 }
 

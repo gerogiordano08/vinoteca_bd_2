@@ -49,7 +49,7 @@ const direccion = {
 
 // Subdocumentos compartidos de las colecciones de página (inicio y catalogo).
 const usuarioCopia = {
-  bsonType: ['object', 'null'],
+  bsonType: 'object',
   required: ['usuarioId'],
   properties: { usuarioId: id, nombre: texto, apellido: texto },
 };
@@ -91,20 +91,16 @@ const resumenProducto = {
       bsonType: 'object',
       properties: { material: texto, unidadVenta: texto },
     },
-    // Campos que agrega catalogo.productos[]:
+    // Campos que agrega la respuesta de Catálogo (sin persistir productos):
     bodega: texto,
     disponible: booleano,
     destacado: booleano,
   },
 };
 
-// Un documento de página pertenece a un usuario registrado (usuario con datos, sin visitanteId)
-// o a un visitante (usuario null y visitanteId), tal como define el modelo.
+// Los visitantes navegan sin documentos persistidos. Toda página guardada requiere usuario.
 const propietarioDePagina = {
-  oneOf: [
-    { required: ['visitanteId'], properties: { usuario: { bsonType: 'null' } } },
-    { not: { required: ['visitanteId'] }, properties: { usuario: { bsonType: 'object' } } },
-  ],
+  not: { required: ['visitanteId'] },
 };
 
 const esquemas = {
@@ -264,7 +260,6 @@ const esquemas = {
     required: ['usuario', 'tienda', 'carrito', 'categorias', 'presentacion', 'productosDestacados'],
     ...propietarioDePagina,
     properties: {
-      visitanteId: texto,
       usuario: usuarioCopia,
       tienda: tiendaCopia,
       carrito: carritoResumen,
@@ -274,23 +269,20 @@ const esquemas = {
         properties: { titulo: texto, descripcion: texto, imagenes: arregloDeTexto },
       },
       productosDestacados: { bsonType: 'array', maxItems: 4, items: resumenProducto },
+      seleccionProductoIds: { bsonType: 'array', maxItems: 4, uniqueItems: true, items: id },
     },
   },
 
   catalogo: {
     bsonType: 'object',
-    required: ['usuario', 'tienda', 'carrito', 'categorias', 'opcionesFiltro', 'consulta', 'productos', 'paginacion'],
+    required: ['usuario', 'tienda', 'carrito', 'categorias', 'consulta', 'paginacion'],
     ...propietarioDePagina,
+    allOf: [{ not: { required: ['productos'] } }, { not: { required: ['opcionesFiltro'] } }],
     properties: {
-      visitanteId: texto,
       usuario: usuarioCopia,
       tienda: tiendaCopia,
       carrito: carritoResumen,
       categorias: { bsonType: 'array', items: categoriaCopia },
-      opcionesFiltro: {
-        bsonType: 'object',
-        properties: { colores: arregloDeTexto, varietales: arregloDeTexto },
-      },
       consulta: {
         bsonType: 'object',
         properties: {
@@ -303,15 +295,13 @@ const esquemas = {
           orden: { enum: ['destacados', 'precio_asc', 'precio_desc', 'nombre_asc'] },
         },
       },
-      productos: { bsonType: 'array', items: resumenProducto },
       paginacion: {
         bsonType: 'object',
-        required: ['paginaActual', 'productosPorPagina', 'totalProductos', 'totalPaginas'],
+        required: ['paginaActual', 'productosPorPagina'],
+        not: { anyOf: [{ required: ['totalProductos'] }, { required: ['totalPaginas'] }] },
         properties: {
           paginaActual: { bsonType: 'int', minimum: 1 },
           productosPorPagina: { bsonType: 'int', minimum: 1 },
-          totalProductos: entero,
-          totalPaginas: entero,
         },
       },
     },
