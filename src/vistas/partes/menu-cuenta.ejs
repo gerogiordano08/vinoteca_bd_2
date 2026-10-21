@@ -1,0 +1,8 @@
+<nav class="panel menu-cuenta" aria-label="Mi cuenta">
+  <p class="menu-cuenta__titulo">Mi cuenta</p>
+  <a href="/cuenta" <%- seccion === 'configuracion' ? 'aria-current="page"' : '' %>>Configuración</a>
+  <a href="/cuenta/direcciones" <%- seccion === 'direcciones' ? 'aria-current="page"' : '' %>>Direcciones</a>
+  <a href="/cuenta/pedidos" <%- seccion === 'pedidos' ? 'aria-current="page"' : '' %>>Mis pedidos</a>
+  <hr>
+  <form action="/cuenta/salir" method="post"><button class="enlace" type="submit">Cerrar sesión</button></form>
+</nav>

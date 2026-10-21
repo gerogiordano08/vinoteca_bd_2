@@ -1,0 +1,36 @@
+<%- include('partes/cabecera') %>
+<% const d = pedido.direccionEntrega; %>
+<section class="contenedor seccion">
+  <nav class="migas" aria-label="Ubicación"><a href="/cuenta/pedidos">Mis pedidos</a> / <span>#<%= pedido.numero %></span></nav>
+  <h1 class="titulo-pagina">Pedido #<%= pedido.numero %></h1>
+  <p class="bajada"><%= v.fecha(pedido.creadoEn) %> · <span class="estado estado--<%= pedido.estadoPedido === 'cancelado' ? 'no' : 'ok' %>"><%= estados[pedido.estadoPedido] %></span></p>
+  <div class="columnas">
+    <div class="panel">
+      <h2 class="panel__titulo">Productos</h2>
+      <table class="tabla">
+        <thead><tr><th>Producto</th><th class="derecha">Precio</th><th class="derecha">Cantidad</th><th class="derecha">Subtotal</th></tr></thead>
+        <tbody>
+          <%# Nombre y precio del momento de la compra: no cambian si cambia el catálogo. %>
+          <% pedido.items.forEach((i) => { %>
+            <tr><td><%= i.nombre %></td><td class="derecha"><%= v.precio(i.precioUnitario) %></td><td class="derecha"><%= i.cantidad %></td><td class="derecha"><%= v.precio(i.subtotal) %></td></tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <aside class="panel resumen">
+      <h2>Resumen</h2>
+      <div class="fila"><span>Subtotal</span><span><%= v.precio(pedido.subtotal) %></span></div>
+      <% if (v.numero(pedido.descuento) > 0) { %><div class="fila"><span>Descuento</span><span>− <%= v.precio(pedido.descuento) %></span></div><% } %>
+      <div class="fila"><span><%= d.tipo === 'envio' ? 'Envío a domicilio' : 'Retiro en tienda' %></span><span><%= v.numero(pedido.costoEnvio) > 0 ? v.precio(pedido.costoEnvio) : 'Sin cargo' %></span></div>
+      <div class="fila fila--total"><span>Total</span><span><%= v.precio(pedido.total) %></span></div>
+      <h3 class="resumen__subtitulo">Entrega</h3>
+      <% if (d.tipo === 'envio') { %>
+        <p class="texto-suave"><%= d.calleNumero %>, <%= d.localidad %><%= d.provincia ? `, ${d.provincia}` : '' %></p>
+      <% } else { %>
+        <p class="texto-suave">Retiro en tienda. Pago al retirar.</p>
+      <% } %>
+      <% if (d.notas) { %><p class="texto-chico">Notas: <%= d.notas %></p><% } %>
+    </aside>
+  </div>
+</section>
+<%- include('partes/pie') %>

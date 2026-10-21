@@ -1,0 +1,75 @@
+<%- include('partes/cabecera') %>
+<% const val = (campo, porDefecto) => (valores[campo] !== undefined ? valores[campo] : porDefecto) || ''; %>
+<% const direcciones = (usuario && usuario.direcciones) || []; const envio = val('entrega', 'retiro') === 'envio'; %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Finalizar pedido</h1>
+  <nav class="migas" aria-label="Pasos"><a href="/carrito">Carrito</a> / <span>Datos y entrega</span> / <span>Confirmación</span></nav>
+
+  <form class="columnas" action="/pedido/confirmar" method="post">
+    <div class="pasos">
+      <fieldset class="panel">
+        <legend class="panel__titulo">1. Datos de contacto</legend>
+        <div class="campos-2">
+          <div class="campo"><label for="nombre">Nombre</label><input id="nombre" name="nombre" required autocomplete="given-name" value="<%= val('nombre', usuario.nombre) %>"></div>
+          <div class="campo"><label for="apellido">Apellido</label><input id="apellido" name="apellido" required autocomplete="family-name" value="<%= val('apellido', usuario.apellido) %>"></div>
+          <div class="campo"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" required autocomplete="email" value="<%= val('email', usuario.email) %>"></div>
+          <div class="campo"><label for="telefono">Teléfono</label><input id="telefono" name="telefono" autocomplete="tel" placeholder="Ingresar teléfono" value="<%= val('telefono', usuario.telefono) %>"></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="panel" data-entrega>
+        <legend class="panel__titulo">2. Forma de entrega</legend>
+        <% if (tienda.retiroHabilitado) { %>
+        <label class="opcion opcion--grande"><input type="radio" name="entrega" value="retiro" <%= envio ? '' : 'checked' %>> Retiro en tienda · Sin cargo</label>
+        <p class="texto-suave">Coordinaremos el retiro cuando el pedido esté preparado.</p>
+        <% } %>
+        <% if (tienda.enviosHabilitados) { %>
+        <hr>
+        <label class="opcion opcion--grande"><input type="radio" name="entrega" value="envio" <%= envio ? 'checked' : '' %>> Envío a domicilio · <%= v.precio(costoEnvio) %></label>
+        <div class="envio" data-envio>
+          <% if (direcciones.length) { %>
+          <div class="campo">
+            <label for="direccionGuardada">Dirección de entrega</label>
+            <select id="direccionGuardada" name="direccionGuardada">
+              <% direcciones.forEach((d, i) => { %><option value="<%= i %>"><%= d.alias %> · <%= d.calleNumero %>, <%= d.localidad %></option><% }) %>
+              <option value="nueva" <%= val('direccionGuardada') === 'nueva' ? 'selected' : '' %>>Ingresar una dirección nueva</option>
+            </select>
+          </div>
+          <% } else { %>
+            <input type="hidden" name="direccionGuardada" value="nueva">
+          <% } %>
+          <div class="campos-2" data-nueva-direccion>
+            <div class="campo"><label for="calleNumero">Calle y número</label><input id="calleNumero" name="calleNumero" value="<%= val('calleNumero') %>"></div>
+            <div class="campo"><label for="localidad">Localidad</label><input id="localidad" name="localidad" value="<%= val('localidad') %>"></div>
+            <div class="campo"><label for="provincia">Provincia</label><input id="provincia" name="provincia" value="<%= val('provincia', 'Mendoza') %>"></div>
+            <div class="campo"><label for="codigoPostal">Código postal</label><input id="codigoPostal" name="codigoPostal" value="<%= val('codigoPostal') %>"></div>
+          </div>
+        </div>
+        <% } %>
+        <div class="campo"><label for="notas">Notas para la entrega</label><input id="notas" name="notas" maxlength="300" placeholder="Opcional" value="<%= val('notas') %>"></div>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend class="panel__titulo">3. Forma de pago</legend>
+        <label class="opcion opcion--grande"><input type="radio" name="pago" value="al_retirar" checked> Pago al retirar</label>
+        <p class="texto-suave">Medio de pago de ejemplo para revisar el flujo de compra.</p>
+      </fieldset>
+    </div>
+
+    <aside class="panel resumen">
+      <h2>Resumen del pedido</h2>
+      <% carrito.items.forEach((item) => { %>
+        <div class="fila texto-chico"><span><%= item.cantidad %> × <%= item.producto.nombre %></span><span><%= v.precio(item.subtotal) %></span></div>
+      <% }) %>
+      <div class="fila"><span>Productos (<%= carrito.cantidadArticulos %>)</span><span><%= v.precio(carrito.subtotal) %></span></div>
+      <div class="fila" data-fila-entrega data-costo="<%= costoEnvio %>" data-subtotal="<%= carrito.subtotal %>">
+        <span data-texto-entrega><%= envio ? 'Envío a domicilio' : 'Retiro en tienda' %></span><span data-costo-entrega><%= envio ? v.precio(costoEnvio) : 'Sin cargo' %></span>
+      </div>
+      <div class="fila fila--total"><span>Total</span><span data-total><%= v.precio(envio ? carrito.subtotal + costoEnvio : carrito.subtotal) %></span></div>
+      <button class="boton boton--principal boton--ancho" type="submit">Confirmar pedido</button>
+      <p class="texto-chico">Revisá los datos antes de confirmar.</p>
+    </aside>
+  </form>
+</section>
+<script src="/js/finalizar.js" defer></script>
+<%- include('partes/pie') %>

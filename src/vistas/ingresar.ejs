@@ -1,0 +1,16 @@
+<%- include('partes/cabecera') %>
+<section class="contenedor seccion acceso">
+  <%- include('partes/bienvenida') %>
+  <form class="panel acceso__formulario" action="/cuenta/ingresar" method="post">
+    <h1 class="titulo-pagina">Bienvenido de nuevo</h1>
+    <p class="bajada">Ingresá para consultar tus pedidos.</p>
+    <div class="campo"><label for="email">Correo electrónico</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="tu@email.com" value="<%= email %>"></div>
+    <div class="campo"><label for="password">Contraseña</label><input id="password" name="password" type="password" required autocomplete="current-password"></div>
+    <a class="enlace" href="/cuenta/recuperar">Olvidé mi contraseña</a>
+    <button class="boton boton--principal boton--ancho" type="submit">Iniciar sesión</button>
+    <p class="texto-suave">¿Todavía no tenés cuenta?</p>
+    <a class="enlace" href="/cuenta/crear">Crear cuenta</a>
+    <a class="enlace" href="/catalogo">Continuar como visitante</a>
+  </form>
+</section>
+<%- include('partes/pie') %>

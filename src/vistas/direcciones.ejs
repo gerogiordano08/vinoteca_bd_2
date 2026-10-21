@@ -1,0 +1,41 @@
+<%- include('partes/cabecera') %>
+<%# Pantalla pendiente de diseño en Figma: se arma con los mismos componentes que Configuración de cuenta. %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Direcciones</h1>
+  <p class="bajada">Guardá las direcciones donde querés recibir tus pedidos.</p>
+  <div class="cuenta">
+    <%- include('partes/menu-cuenta') %>
+    <div class="pasos">
+      <div class="panel">
+        <h2 class="panel__titulo">Mis direcciones</h2>
+        <% if (!usuario.direcciones || !usuario.direcciones.length) { %>
+          <p class="texto-suave">Todavía no guardaste direcciones.</p>
+        <% } else { %>
+          <% usuario.direcciones.forEach((d, i) => { %>
+            <div class="direccion">
+              <div>
+                <p class="direccion__alias"><%= d.alias %></p>
+                <p class="texto-suave"><%= d.calleNumero %>, <%= d.localidad %><%= d.provincia ? `, ${d.provincia}` : '' %><%= d.codigoPostal ? ` (${d.codigoPostal})` : '' %></p>
+                <% if (d.referencias) { %><p class="texto-chico"><%= d.referencias %></p><% } %>
+              </div>
+              <form action="/cuenta/direcciones/<%= i %>/quitar" method="post"><button class="enlace" type="submit">Quitar</button></form>
+            </div>
+          <% }) %>
+        <% } %>
+      </div>
+      <form class="panel" action="/cuenta/direcciones" method="post">
+        <h2 class="panel__titulo">Agregar una dirección</h2>
+        <div class="campos-2">
+          <div class="campo"><label for="alias">Alias</label><input id="alias" name="alias" placeholder="Casa, trabajo…"></div>
+          <div class="campo"><label for="calleNumero">Calle y número</label><input id="calleNumero" name="calleNumero" required></div>
+          <div class="campo"><label for="localidad">Localidad</label><input id="localidad" name="localidad" required></div>
+          <div class="campo"><label for="provincia">Provincia</label><input id="provincia" name="provincia" value="Mendoza"></div>
+          <div class="campo"><label for="codigoPostal">Código postal</label><input id="codigoPostal" name="codigoPostal"></div>
+          <div class="campo"><label for="referencias">Referencias</label><input id="referencias" name="referencias" placeholder="Opcional"></div>
+        </div>
+        <button class="boton boton--principal" type="submit">Guardar dirección</button>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include('partes/pie') %>

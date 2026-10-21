@@ -1,0 +1,21 @@
+<%- include('partes/cabecera') %>
+<% const retiro = pedido.direccionEntrega.tipo === 'retiro'; %>
+<section class="contenedor seccion">
+  <div class="panel confirmacion">
+    <p class="estado estado--ok">Pedido registrado</p>
+    <h1 class="titulo-pagina">¡Gracias por tu pedido!</h1>
+    <p class="bajada">Tu pedido #<%= pedido.numero %> fue registrado correctamente.</p>
+    <div class="confirmacion__datos">
+      <div class="fila"><span>Número de pedido</span><span>#<%= pedido.numero %></span></div>
+      <div class="fila"><span>Entrega</span><span><%= retiro ? 'Retiro en tienda' : 'Envío a domicilio' %></span></div>
+      <div class="fila"><span>Pago</span><span><%= retiro ? 'Al retirar' : 'Al recibir' %> · Pendiente</span></div>
+      <div class="fila"><span>Total</span><span><%= v.precio(pedido.total) %></span></div>
+      <p class="texto-suave"><%= retiro ? 'Te avisaremos cuando esté listo para retirar.' : 'Te avisaremos cuando el pedido salga para tu domicilio.' %></p>
+    </div>
+    <div class="acciones">
+      <a class="boton boton--principal" href="/cuenta/pedidos/<%= pedido.numero %>">Ver mi pedido</a>
+      <a class="boton boton--borde" href="/catalogo">Seguir comprando</a>
+    </div>
+  </div>
+</section>
+<%- include('partes/pie') %>

@@ -1,0 +1,44 @@
+<%- include('partes/cabecera') %>
+<%# Datos del documento del usuario registrado o de una vista pública sin persistencia. %>
+<section class="portada">
+  <div class="contenedor portada__contenido">
+    <div class="portada__texto">
+      <p class="etiqueta">Vinos, espumantes y accesorios</p>
+      <% const [linea1, ...resto] = pagina.presentacion.titulo.split('. ') %>
+      <h1 class="portada__titulo"><%= linea1 %>.<% if (resto.length) { %><br><%= resto.join('. ') %><% } %></h1>
+      <p class="portada__descripcion"><%= pagina.presentacion.descripcion %></p>
+      <a class="boton boton--principal" href="/catalogo">Explorar el catálogo</a>
+    </div>
+    <div class="portada__imagenes" aria-hidden="true">
+      <% pagina.presentacion.imagenes.forEach((img, i) => { %>
+        <div class="portada__imagen portada__imagen--<%= i === 0 ? 'grande' : 'chica' %>"><img src="<%= img %>" alt=""></div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="contenedor seccion">
+  <h2 class="titulo-seccion">Elegí por categoría</h2>
+  <div class="grilla grilla--3">
+    <% pagina.categorias.forEach((c) => { %>
+      <a class="categoria" href="/catalogo?categoria=<%= c.slug %>">
+        <span class="categoria__nombre"><%= c.nombre %></span>
+        <span class="categoria__descripcion"><%= c.descripcion %></span>
+        <span class="enlace">Ver selección →</span>
+      </a>
+    <% }) %>
+  </div>
+
+  <div class="titulo-con-accion">
+    <h2 class="titulo-seccion">Una selección para empezar</h2>
+    <a class="enlace" href="/catalogo">Ver todos</a>
+  </div>
+  <% if (pagina.productosDestacados.length) { %>
+    <div class="grilla grilla--4">
+      <% pagina.productosDestacados.forEach((p) => { %><%- include('partes/tarjeta', { p }) %><% }) %>
+    </div>
+  <% } else { %>
+    <p class="texto-suave">Pronto vas a encontrar acá nuestra selección.</p>
+  <% } %>
+</section>
+<%- include('partes/pie') %>

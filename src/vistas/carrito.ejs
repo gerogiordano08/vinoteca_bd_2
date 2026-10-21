@@ -1,0 +1,52 @@
+<%- include('partes/cabecera') %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Tu carrito</h1>
+  <p class="bajada">Revisá los productos y las cantidades antes de continuar.</p>
+
+  <% if (!carrito.items.length) { %>
+    <div class="panel vacio">
+      <p>Tu carrito está vacío.</p>
+      <a class="boton boton--principal" href="/catalogo">Explorar el catálogo</a>
+    </div>
+  <% } else { %>
+  <div class="columnas">
+    <div class="panel lista-carrito">
+      <p class="texto-suave"><%= v.plural(carrito.cantidadArticulos, 'producto', 'productos') %></p>
+      <% carrito.items.forEach((item) => { const p = item.producto; %>
+        <div class="item-carrito">
+          <div class="item-carrito__imagen"><img src="<%= p.imagenes[0] %>" alt="" width="60" height="80"></div>
+          <div class="item-carrito__info">
+            <a class="item-carrito__nombre" href="/productos/<%= p._id %>"><%= p.nombre %></a>
+            <p class="texto-chico"><%= v.subtitulo({ ...p, categoria: { slug: p.tipoProducto === 'espumante' ? 'espumantes' : '' } }) %></p>
+            <% if (item.aviso) { %><p class="texto-chico texto-error"><%= item.aviso %></p><% } %>
+            <form action="/carrito/<%= p._id %>/quitar" method="post"><button class="enlace" type="submit">Quitar del carrito</button></form>
+          </div>
+          <form class="cantidad" action="/carrito/<%= p._id %>/cantidad" method="post">
+            <input type="hidden" name="cantidad" value="<%= item.cantidad %>">
+            <button name="accion" value="restar" aria-label="Restar una unidad">−</button>
+            <span aria-label="Cantidad"><%= item.cantidad %></span>
+            <button name="accion" value="sumar" aria-label="Sumar una unidad" <%= item.cantidad >= p.stockActual ? 'disabled' : '' %>>+</button>
+          </form>
+          <p class="item-carrito__precio"><%= v.precio(item.subtotal) %></p>
+        </div>
+      <% }) %>
+      <a class="enlace" href="/catalogo">← Seguir comprando</a>
+    </div>
+
+    <aside class="panel resumen">
+      <h2>Resumen del pedido</h2>
+      <div class="fila"><span>Productos (<%= carrito.cantidadArticulos %>)</span><span><%= v.precio(carrito.subtotal) %></span></div>
+      <div class="fila"><span>Retiro en tienda</span><span>Sin cargo</span></div>
+      <div class="fila fila--total"><span>Total</span><span><%= v.precio(carrito.subtotal) %></span></div>
+      <% if (carrito.problemas.length) { %>
+        <p class="texto-chico texto-error">Revisá los avisos de los productos antes de continuar.</p>
+        <button class="boton boton--principal boton--ancho" disabled>Continuar con el pedido</button>
+      <% } else { %>
+        <a class="boton boton--principal boton--ancho" href="/pedido/finalizar">Continuar con el pedido</a>
+      <% } %>
+      <p class="texto-chico">El costo de envío se confirma en el siguiente paso.</p>
+    </aside>
+  </div>
+  <% } %>
+</section>
+<%- include('partes/pie') %>

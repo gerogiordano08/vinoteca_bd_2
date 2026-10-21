@@ -1,0 +1,30 @@
+<%- include('partes/cabecera') %>
+<section class="contenedor seccion">
+  <h1 class="titulo-pagina">Ayuda y contacto</h1>
+  <p class="bajada">Todo lo que necesitás saber para realizar tu pedido.</p>
+  <div class="columnas columnas--ayuda">
+    <div class="pasos">
+      <% [
+        ['¿Cómo compro?', 'Elegí un producto, agregalo al carrito y completá tus datos para registrar el pedido.'],
+        ['¿Dónde consulto mi pedido?', 'En Mi cuenta → Mis pedidos podés ver el estado y el detalle de cada compra.'],
+        ['¿Puedo retirar en la tienda?', 'Sí. Seleccioná retiro al finalizar el pedido y esperá la confirmación de que está preparado.'],
+        ['¿Cómo se coordina el envío?', 'La disponibilidad y el costo de envío se confirman antes de completar la compra.'],
+      ].forEach(([pregunta, respuesta]) => { %>
+        <div class="panel pregunta"><h2><%= pregunta %></h2><p class="texto-suave"><%= respuesta %></p></div>
+      <% }) %>
+    </div>
+    <%# El modelo no tiene una colección de consultas: el formulario arma un correo a la dirección de la tienda. %>
+    <form class="panel" data-contacto data-email="<%= tienda ? tienda.emailContacto : '' %>">
+      <h2 class="panel__titulo">Escribinos</h2>
+      <div class="campo"><label for="c-nombre">Nombre</label><input id="c-nombre" name="nombre" required placeholder="Tu nombre"></div>
+      <div class="campo"><label for="c-email">Correo electrónico</label><input id="c-email" name="email" type="email" required placeholder="tu@email.com"></div>
+      <div class="campo"><label for="c-consulta">Consulta</label><textarea id="c-consulta" name="consulta" rows="3" required placeholder="Contanos en qué podemos ayudarte"></textarea></div>
+      <button class="boton boton--principal boton--ancho" type="submit">Enviar consulta</button>
+      <% if (tienda) { %>
+        <p class="texto-chico">Se abre tu programa de correo con la consulta para <%= tienda.emailContacto %>. También podés llamarnos al <%= tienda.telefonoContacto %><% if (tienda.direccionComercial) { %> o visitarnos en <%= tienda.direccionComercial.calleNumero %>, <%= tienda.direccionComercial.localidad %> (<%= tienda.direccionComercial.horario %>)<% } %>.</p>
+      <% } %>
+    </form>
+  </div>
+</section>
+<script src="/js/contacto.js" defer></script>
+<%- include('partes/pie') %>
