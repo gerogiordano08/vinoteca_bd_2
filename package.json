@@ -20,7 +20,8 @@
     "db:volumen:compartidas": "node scripts/generar-productos-compartidos.js",
     "db:setup": "node scripts/inicializar-base.js && node scripts/cargar-datos.js",
     "consultas": "node scripts/consultas-avanzadas.js",
-    "rendimiento": "node scripts/medir-rendimiento.js",
+    "consulta": "node --env-file=.env consultas/ejecutar.js",
+    "rendimiento": "node --env-file=.env scripts/medir-rendimiento.js",
     "backup": "node scripts/backup.js --exportar",
     "restaurar": "node scripts/restaurar.js",
     "test": "node --test --test-concurrency=1 \"tests/**/*.test.js\""
