@@ -47,6 +47,7 @@ Para cambiar el puerto, la base o la cantidad de productos por página, copiá `
 | --- | --- |
 | `npm start` / `npm run dev` | Inicia la aplicación (`dev` se reinicia al guardar). |
 | `npm run db:init` | Actualiza validadores e índices; elimina páginas antiguas de visitantes o sin usuario existente. Conserva productos, usuarios y pedidos. |
+| `npm run db:indices` | Carga `.env` y actualiza solo los índices, sin modificar documentos ni validadores. |
 | `npm run db:seed` | Borra y vuelve a cargar los datos de ejemplo. |
 | `npm run db:paginas` | Agrega cinco cuentas de demostración con sus páginas de Inicio y Catálogo y distintos productos. No borra datos. |
 | `npm run db:volumen:compartidas` | Genera hasta 200.000 productos reutilizando los 8 archivos de imagen originales. |
@@ -58,6 +59,10 @@ Para cambiar el puerto, la base o la cantidad de productos por página, copiá `
 | `npm test` | Pruebas automáticas sobre bases de prueba temporales. |
 
 ## Cómo está armado
+
+La revisión de los índices del catálogo, con los planes y resultados antes y después sobre los 200.025 productos cargados, está en [docs/implementacion/indices.md](docs/implementacion/indices.md).
+
+La [guía de índices](docs/implementacion/guia-indices.md) explica los 26 índices del esquema, cómo organizan las entradas, qué consultas resuelven y cómo funcionan la unicidad y la búsqueda de texto.
 
 ### Cargar productos para consultas propias
 

@@ -4,8 +4,10 @@
 const indices = {
   productos: [
     { key: { sku: 1 }, name: 'sku_unico', unique: true },
-    // Catálogo: filtra por activo y categoría, y ordena o filtra por precio.
-    { key: { activo: 1, categoriaId: 1, precio: 1 }, name: 'catalogo_categoria_precio' },
+    // Catálogo: igualdad por activo/categoría, seguida del orden completo y sus desempates.
+    { key: { activo: 1, categoriaId: 1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_nombre' },
+    { key: { activo: 1, categoriaId: 1, destacado: -1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_destacados' },
+    { key: { activo: 1, categoriaId: 1, precio: 1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_precio_asc' },
     // Inicio: destacados activos con stock, ordenados por nombre.
     { key: { destacado: 1, activo: 1, nombre: 1 }, name: 'destacados_por_nombre' },
     // Filtros del catálogo sobre el subdocumento detalleVino.
@@ -30,11 +32,11 @@ const indices = {
       unique: true,
       partialFilterExpression: { estado: 'activo' },
     },
-    { key: { 'items.productoId': 1 }, name: 'carritos_por_producto' },
   ],
   pedidos: [
     { key: { numero: 1 }, name: 'numero_unico', unique: true },
     { key: { usuarioId: 1, creadoEn: -1 }, name: 'pedidos_de_usuario' },
+    // Los informes de ventas usan estadoPedido != cancelado; explain confirma su utilización.
     { key: { estadoPedido: 1, creadoEn: -1 }, name: 'pedidos_por_estado' },
   ],
   inicio: [
@@ -45,9 +47,6 @@ const indices = {
       unique: true,
       partialFilterExpression: { 'usuario.usuarioId': { $exists: true } },
     },
-    // Sincronización: ubicar las copias afectadas por un cambio en productos o categorías.
-    { key: { 'productosDestacados.productoId': 1 }, name: 'inicio_por_producto' },
-    { key: { 'categorias.categoriaId': 1 }, name: 'inicio_por_categoria' },
   ],
   catalogo: [
     {
@@ -56,7 +55,6 @@ const indices = {
       unique: true,
       partialFilterExpression: { 'usuario.usuarioId': { $exists: true } },
     },
-    { key: { 'categorias.categoriaId': 1 }, name: 'catalogo_por_categoria' },
   ],
 };
 

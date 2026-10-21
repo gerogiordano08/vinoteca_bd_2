@@ -14,6 +14,8 @@ El modelo (`docs/Modelo_Vinoteca_MongoDB_Diseno_Editorial_Actualizado.docx`) dej
 
 ## Otras decisiones
 
+- **Índices del catálogo (20/10/2026).** Se incorporan índices compuestos para categoría y orden completo por nombre, destacados y precio ascendente, con `_id` como último desempate. El índice de precio anterior se sustituye y se retiran cuatro índices que las operaciones actuales no aprovechan. Se conserva `pedidos_por_estado` porque el informe mensual lo utiliza. `db:indices` aplica solo índices y `db:init` utiliza la misma migración; resultados y límites en [indices.md](indices.md). El precio descendente con desempates ascendentes sigue siendo un experimento pendiente.
+
 - **Driver oficial de MongoDB, sin Mongoose.** Las consultas, agregaciones y validadores quedan escritos tal como se ven en clase y en mongosh.
 - **Destacados en orden alfabético.** El boceto muestra Malbec Reserva primero, pero el modelo fija el orden por nombre y luego por `_id`. Se respeta el modelo: Brut Nature, Chardonnay Joven, Copa de cristal y Malbec Reserva.
 - **Selecciones propias en Inicio.** Para demostrar páginas con productos diferentes por usuario, Inicio admite `seleccionProductoIds` opcional (hasta cuatro ObjectId distintos). Cuando está presente se muestran esos productos activos, con stock y categoría activa, aunque no sean destacados generales. La sincronización conserva la selección y actualiza sus copias. Si se omite, se mantiene la selección general por `destacado = true`. `db:paginas` carga cinco ejemplos con filtros distintos en Catálogo y selecciones propias en Inicio.

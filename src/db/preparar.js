@@ -1,5 +1,5 @@
 const { esquemas } = require('./esquemas');
-const { indices } = require('./indices');
+const { prepararIndices } = require('./preparar-indices');
 
 /**
  * Crea las colecciones con su validador $jsonSchema (o lo actualiza si ya existen) y crea los índices.
@@ -58,13 +58,7 @@ async function prepararBase(db, { log = () => {} } = {}) {
     }
   }
 
-  for (const [nombre, lista] of Object.entries(indices)) {
-    const coleccion = db.collection(nombre);
-    for (const { key, ...opciones } of lista) {
-      await coleccion.createIndex(key, opciones);
-    }
-    log(`Índices de ${nombre}: ${lista.map((i) => i.name).join(', ')}`);
-  }
+  await prepararIndices(db, { log });
 }
 
 module.exports = { prepararBase };
