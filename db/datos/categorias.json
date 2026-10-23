@@ -1,0 +1,32 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "slug": "vinos",
+  "nombre": "Vinos",
+  "descripcion": "Tintos, blancos y rosados",
+  "activa": true,
+  "imagenUrl": "/img/categorias/vinos.svg"
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f3"
+  },
+  "slug": "espumantes",
+  "nombre": "Espumantes",
+  "descripcion": "Para brindar y compartir",
+  "activa": true,
+  "imagenUrl": "/img/categorias/espumantes.svg"
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "slug": "accesorios",
+  "nombre": "Accesorios",
+  "descripcion": "Para servir y conservar",
+  "activa": true,
+  "imagenUrl": "/img/categorias/accesorios.svg"
+ }
+]

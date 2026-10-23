@@ -1,0 +1,753 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b4b2a37e45f66b84e2"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b4b2a37e45f66b84e1"
+   },
+   "nombre": "Tomás",
+   "apellido": "Tintos"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "presentacion": {
+   "titulo": "Un buen vino. Un gran momento.",
+   "descripcion": "Encontrá tu próxima botella y todo para disfrutarla. Un catálogo simple, con sabores para cada ocasión.",
+   "imagenes": [
+    "/img/productos/botella-tinto.svg",
+    "/img/productos/copa.svg"
+   ]
+  },
+  "productosDestacados": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2305"
+    },
+    "nombre": "Blend de Altura",
+    "descripcionCorta": "Corte de Malbec, Cabernet y Tannat de los Valles Calchaquíes.",
+    "precio": {
+     "$numberDecimal": "24800.00"
+    },
+    "imagen": "/img/productos/botella-tinto.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Tinto",
+     "origenProvincia": "Salta",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22fe"
+    },
+    "nombre": "Bonarda",
+    "descripcionCorta": "Tinto ligero y especiado, muy fácil de tomar.",
+    "precio": {
+     "$numberDecimal": "8900.00"
+    },
+    "imagen": "/img/productos/botella-tinto.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Tinto",
+     "origenProvincia": "San Juan",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2304"
+    },
+    "nombre": "Cabernet Franc Gran Reserva",
+    "descripcionCorta": "Tinto de guarda, complejo y especiado.",
+    "precio": {
+     "$numberDecimal": "32500.00"
+    },
+    "imagen": "/img/productos/botella-tinto.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Tinto",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22fb"
+    },
+    "nombre": "Cabernet Sauvignon",
+    "descripcionCorta": "Tinto estructurado, con notas de pimiento y frutos negros.",
+    "precio": {
+     "$numberDecimal": "17800.00"
+    },
+    "imagen": "/img/productos/botella-tinto.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Tinto",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   }
+  ],
+  "seleccionProductoIds": [
+   {
+    "$oid": "6adb34b429cffdc485ee2305"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee22fe"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee2304"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee22fb"
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e4"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b4b2a37e45f66b84e3"
+   },
+   "nombre": "Blanca",
+   "apellido": "Blancos"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "presentacion": {
+   "titulo": "Un buen vino. Un gran momento.",
+   "descripcion": "Encontrá tu próxima botella y todo para disfrutarla. Un catálogo simple, con sabores para cada ocasión.",
+   "imagenes": [
+    "/img/productos/botella-tinto.svg",
+    "/img/productos/copa.svg"
+   ]
+  },
+  "productosDestacados": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22fc"
+    },
+    "nombre": "Chardonnay Joven",
+    "descripcionCorta": "Blanco fresco y frutado, ideal para el aperitivo.",
+    "precio": {
+     "$numberDecimal": "14200.00"
+    },
+    "imagen": "/img/productos/botella-blanco.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2303"
+    },
+    "nombre": "Sauvignon Blanc",
+    "descripcionCorta": "Blanco herbal y cítrico, de acidez marcada.",
+    "precio": {
+     "$numberDecimal": "12600.00"
+    },
+    "imagen": "/img/productos/botella-blanco.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "Neuquén",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22ff"
+    },
+    "nombre": "Torrontés",
+    "descripcionCorta": "Blanco aromático del norte, floral y refrescante.",
+    "precio": {
+     "$numberDecimal": "9500.00"
+    },
+    "imagen": "/img/productos/botella-blanco.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "Salta",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   }
+  ],
+  "seleccionProductoIds": [
+   {
+    "$oid": "6adb34b429cffdc485ee22fc"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee2303"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee22ff"
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e6"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e5"
+   },
+   "nombre": "Rocío",
+   "apellido": "Rosados"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "presentacion": {
+   "titulo": "Un buen vino. Un gran momento.",
+   "descripcion": "Encontrá tu próxima botella y todo para disfrutarla. Un catálogo simple, con sabores para cada ocasión.",
+   "imagenes": [
+    "/img/productos/botella-tinto.svg",
+    "/img/productos/copa.svg"
+   ]
+  },
+  "productosDestacados": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2302"
+    },
+    "nombre": "Rosado de Malbec",
+    "descripcionCorta": "Rosado seco y vibrante, para tardes de verano.",
+    "precio": {
+     "$numberDecimal": "10400.00"
+    },
+    "imagen": "/img/productos/botella-rosado.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f2"
+     },
+     "nombre": "Vinos",
+     "slug": "vinos"
+    },
+    "detalleVino": {
+     "color": "Rosado",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   }
+  ],
+  "seleccionProductoIds": [
+   {
+    "$oid": "6adb34b429cffdc485ee2302"
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e8"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e7"
+   },
+   "nombre": "Emilia",
+   "apellido": "Espumantes"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "presentacion": {
+   "titulo": "Un buen vino. Un gran momento.",
+   "descripcion": "Encontrá tu próxima botella y todo para disfrutarla. Un catálogo simple, con sabores para cada ocasión.",
+   "imagenes": [
+    "/img/productos/botella-tinto.svg",
+    "/img/productos/copa.svg"
+   ]
+  },
+  "productosDestacados": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2308"
+    },
+    "nombre": "Brut Nature",
+    "descripcionCorta": "Espumante seco de burbuja fina, elaborado por método tradicional.",
+    "precio": {
+     "$numberDecimal": "21000.00"
+    },
+    "imagen": "/img/productos/botella-espumante.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f3"
+     },
+     "nombre": "Espumantes",
+     "slug": "espumantes"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230a"
+    },
+    "nombre": "Brut Rosé",
+    "descripcionCorta": "Espumante rosado con aromas de frutos rojos.",
+    "precio": {
+     "$numberDecimal": "18900.00"
+    },
+    "imagen": "/img/productos/botella-espumante.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f3"
+     },
+     "nombre": "Espumantes",
+     "slug": "espumantes"
+    },
+    "detalleVino": {
+     "color": "Rosado",
+     "origenProvincia": "Neuquén",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230b"
+    },
+    "nombre": "Dulce Natural",
+    "descripcionCorta": "Espumante dulce y aromático, para el postre.",
+    "precio": {
+     "$numberDecimal": "9900.00"
+    },
+    "imagen": "/img/productos/botella-espumante.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f3"
+     },
+     "nombre": "Espumantes",
+     "slug": "espumantes"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "San Juan",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2309"
+    },
+    "nombre": "Extra Brut",
+    "descripcionCorta": "Espumante equilibrado, ideal para brindar.",
+    "precio": {
+     "$numberDecimal": "16500.00"
+    },
+    "imagen": "/img/productos/botella-espumante.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f3"
+     },
+     "nombre": "Espumantes",
+     "slug": "espumantes"
+    },
+    "detalleVino": {
+     "color": "Blanco",
+     "origenProvincia": "Mendoza",
+     "contenidoMl": {
+      "$numberInt": "750"
+     }
+    }
+   }
+  ],
+  "seleccionProductoIds": [
+   {
+    "$oid": "6adb34b429cffdc485ee2308"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee230a"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee230b"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee2309"
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84ea"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e9"
+   },
+   "nombre": "Alejo",
+   "apellido": "Accesorios"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "presentacion": {
+   "titulo": "Un buen vino. Un gran momento.",
+   "descripcion": "Encontrá tu próxima botella y todo para disfrutarla. Un catálogo simple, con sabores para cada ocasión.",
+   "imagenes": [
+    "/img/productos/botella-tinto.svg",
+    "/img/productos/copa.svg"
+   ]
+  },
+  "productosDestacados": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230c"
+    },
+    "nombre": "Copa de cristal",
+    "descripcionCorta": "Para disfrutar cada aroma.",
+    "precio": {
+     "$numberDecimal": "7500.00"
+    },
+    "imagen": "/img/productos/copa.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f4"
+     },
+     "nombre": "Accesorios",
+     "slug": "accesorios"
+    },
+    "detalleAccesorio": {
+     "material": "Cristal",
+     "unidadVenta": "1 unidad"
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230e"
+    },
+    "nombre": "Decantador de vidrio",
+    "descripcionCorta": "Oxigena el vino y realza sus aromas.",
+    "precio": {
+     "$numberDecimal": "24500.00"
+    },
+    "imagen": "/img/productos/decantador.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f4"
+     },
+     "nombre": "Accesorios",
+     "slug": "accesorios"
+    },
+    "detalleAccesorio": {
+     "material": "Vidrio",
+     "unidadVenta": "1 unidad"
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2311"
+    },
+    "nombre": "Enfriador de botellas",
+    "descripcionCorta": "Mantiene la temperatura ideal en la mesa.",
+    "precio": {
+     "$numberDecimal": "14800.00"
+    },
+    "imagen": "/img/productos/accesorio.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f4"
+     },
+     "nombre": "Accesorios",
+     "slug": "accesorios"
+    },
+    "detalleAccesorio": {
+     "material": "Acero inoxidable",
+     "unidadVenta": "1 unidad"
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230d"
+    },
+    "nombre": "Sacacorchos clásico",
+    "descripcionCorta": "Sacacorchos de doble palanca, firme y duradero.",
+    "precio": {
+     "$numberDecimal": "6200.00"
+    },
+    "imagen": "/img/productos/sacacorchos.svg",
+    "categoria": {
+     "categoriaId": {
+      "$oid": "6adb34b429cffdc485ee22f4"
+     },
+     "nombre": "Accesorios",
+     "slug": "accesorios"
+    },
+    "detalleAccesorio": {
+     "material": "Acero",
+     "unidadVenta": "1 unidad"
+    }
+   }
+  ],
+  "seleccionProductoIds": [
+   {
+    "$oid": "6adb34b429cffdc485ee230c"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee230e"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee2311"
+   },
+   {
+    "$oid": "6adb34b429cffdc485ee230d"
+   }
+  ]
+ }
+]
