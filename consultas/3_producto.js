@@ -42,4 +42,26 @@ mostrar('3.3 Disponibilidad de los productos de ejemplo', () =>
     { $match: { disponible: false } },
   ])
 );
+
+// -----------------------------------------------------------------------------
+// 3.4 Evolución del precio del Malbec Reserva, mes a mes (serie temporal).
+// historial_precios es una colección de series temporales: se filtra por el
+// metaField (productoId) y un rango del timeField (fecha), que resuelve el
+// índice { productoId, fecha } que MongoDB crea solo, y $dateTrunc agrupa por mes.
+// -----------------------------------------------------------------------------
+if (db.getCollectionInfos({ name: 'historial_precios', type: 'timeseries' }).length) {
+  mostrar('3.4 Precio del Malbec Reserva por mes (historial_precios)', () =>
+    db.historial_precios.aggregate([
+      { $match: { productoId: IDS.malbec, fecha: { $gte: ISODate('2025-10-01'), $lte: HOY } } },
+      { $group: {
+        _id: { $dateTrunc: { date: '$fecha', unit: 'month' } },
+        minimo: { $min: '$precio' }, maximo: { $max: '$precio' }, puntos: { $sum: 1 },
+      } },
+      { $sort: { _id: 1 } },
+      { $project: { _id: 0, mes: { $dateToString: { date: '$_id', format: '%Y-%m' } }, minimo: 1, maximo: 1, puntos: 1 } },
+    ]),
+  { limite: 12 });
+} else {
+  print('\n▸ 3.4 Sin historial_precios: crear la serie con mongosh db/06_historial_precios.js');
+}
 }

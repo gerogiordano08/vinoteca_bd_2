@@ -102,6 +102,7 @@ En Compass, la vista `pagina_vinos` muestra la categoría Vinos con el mismo ord
 | 3.1 | Ficha de un vino | `aggregate`: `$match` por `_id`, `$lookup` a `categorias` y `bodegas`. El detalle del vino está embebido (`detalleVino`) |
 | 3.2 | Ficha de un accesorio | `findOne`: los accesorios tienen `detalleAccesorio` en lugar de `detalleVino` |
 | 3.3 | Aviso "Sin stock por el momento" | `$project` con `disponible: { $and: ['$activo', { $gt: ['$stockActual', 0] }] }` |
+| 3.4 | Evolución del precio por mes | Serie temporal `historial_precios`: `$match` por `productoId` (metaField) y rango de `fecha` (timeField), `$group` por `$dateTrunc: { unit: 'month' }` con `$min`, `$max` y `$sum` |
 
 ```text
 ▸ 3.2 Ficha de Copa de cristal   (2 ms)
@@ -114,6 +115,16 @@ En Compass, la vista `pagina_vinos` muestra la categoría Vinos con el mismo ord
 ```
 
 "Malbec Edición Limitada 2019" tiene stock pero está inactivo: no se vende.
+
+```text
+▸ 3.4 Precio del Malbec Reserva por mes (historial_precios)   (12 resultados, 5 ms)
+    { minimo: 17900.00, maximo: 18200.00, puntos: 31, mes: "2025-10" }
+    { minimo: 17600.00, maximo: 18200.00, puntos: 31, mes: "2025-12" }
+    …
+    { minimo: 17600.00, maximo: 18500.00, puntos: 31, mes: "2026-09" }
+```
+
+`historial_precios` es una **colección de series temporales** (`timeField: fecha`, `metaField: productoId`, `granularity: hours`), creada por `db/06_historial_precios.js` con 8.785 puntos: el precio cobrado cada día en los pedidos y el precio actual. MongoDB guarda los puntos de cada producto agrupados en *buckets* comprimidos y crea solo el índice `productoId_1_fecha_1`: la consulta de julio a septiembre del Malbec devuelve 93 puntos examinando 7 buckets. Los 18.500 de septiembre son el precio actual.
 
 ## 4 · Carrito
 

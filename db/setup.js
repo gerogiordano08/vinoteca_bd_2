@@ -7,6 +7,7 @@
 //   03_indices.js         índices
 //   04_vistas.js          vistas para MongoDB Compass
 //   05_verificar.js       volumen, validación e integridad de referencias
+//   06_historial_precios.js  serie temporal de precios (colección time series)
 //
 // Uso (desde la carpeta del proyecto):
 //   mongosh db/setup.js
@@ -21,7 +22,7 @@ load(__dirname + '/config.js');
 load(__dirname + '/utilidades.js');
 
 const total = cronometro();
-for (const script of ['00_crear_db.js', '01_datos.js', '02_datos_masivos.js', '03_indices.js', '04_vistas.js', '05_verificar.js']) {
+for (const script of ['00_crear_db.js', '01_datos.js', '02_datos_masivos.js', '03_indices.js', '04_vistas.js', '05_verificar.js', '06_historial_precios.js']) {
   load(`${__dirname}/${script}`);
 }
 print(`\nBase "${CONFIG.dbName}" lista en ${total()}.`);
