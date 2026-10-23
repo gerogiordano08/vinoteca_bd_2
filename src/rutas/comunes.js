@@ -11,9 +11,13 @@ function avisar(req, tipo, texto) {
   req.session.mensaje = { tipo, texto };
 }
 
-/** Vuelve solo a rutas internas de la tienda (evita redirecciones abiertas a otros sitios). */
+/**
+ * Vuelve solo a rutas internas de la tienda (evita redirecciones abiertas a otros sitios).
+ * Los navegadores leen "/\otro-sitio" como "//otro-sitio", por eso tampoco se aceptan barras invertidas.
+ */
 function destinoSeguro(destino, porDefecto = '/') {
-  return typeof destino === 'string' && destino.startsWith('/') && !destino.startsWith('//') ? destino : porDefecto;
+  return typeof destino === 'string' && destino.startsWith('/') && !destino.startsWith('//') && !destino.includes('\\')
+    ? destino : porDefecto;
 }
 
 module.exports = { requiereSesion, avisar, destinoSeguro };
