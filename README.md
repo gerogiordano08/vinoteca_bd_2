@@ -10,7 +10,7 @@ La aplicación implementa el modelo de datos del equipo (`docs/Modelo_Vinoteca_M
 | --- | --- |
 | Planteo de requisitos y de la solución | [docs/implementacion/requisitos-y-solucion.md](docs/implementacion/requisitos-y-solucion.md) |
 | Modelado de la estructura de datos | Modelo del equipo (`docs/`), validadores en [src/db/esquemas.js](src/db/esquemas.js) y [decisiones de implementación](docs/implementacion/decisiones.md) |
-| Implementación del modelo en MongoDB | 9 colecciones con `$jsonSchema` e índices: `npm run db:init` |
+| Implementación del modelo en MongoDB | 9 colecciones con `$jsonSchema` e índices: `npm run db:init`, o todo desde mongosh con `mongosh db/setup.js` ([ver abajo](#solo-con-mongosh-y-mongodb-compass)) |
 | Carga de datos | 25 productos (24 a la venta), 42 usuarios, 180 pedidos y 6 carritos: `npm run db:seed` |
 | Consultas avanzadas | 10 agregaciones con `$lookup`, `$unwind`, `$group`, `$project`, `$cond`, `$facet` y `$bucket`: [consultas/avanzadas.js](consultas/avanzadas.js) |
 | Medición de desempeño (indización) | `explain("executionStats")` con y sin índice: [docs/implementacion/rendimiento.md](docs/implementacion/rendimiento.md) |
@@ -42,6 +42,34 @@ Cuentas de prueba (solo para desarrollo local):
 Para cambiar el puerto, la base o la cantidad de productos por página, copiá `.env.example` a `.env` y ejecutá `node --env-file=.env src/server.js`.
 
 Los atajos `npm run consulta` y `npm run rendimiento` cargan `.env`. Los demás comandos de `package.json` actualmente no lo cargan automáticamente: usan las variables exportadas en la terminal o los valores predeterminados de `src/config.js`. Para esos scripts, si necesitás usar `.env`, ejecutalos directamente con `node --env-file=.env ruta/al/script.js`.
+
+## Solo con mongosh y MongoDB Compass
+
+Todo el trabajo con la base también se puede hacer sin Node.js, con los scripts de **mongosh** (desde la carpeta del proyecto) y revisando el resultado en **Compass** (`mongodb://localhost:27017`, base `vinoteca`):
+
+```bash
+mongosh db/setup.js            # crea la base desde cero: colecciones, datos, carga masiva, índices, vistas y verificación
+mongosh consultas/todas.js     # todas las consultas de la aplicación, pantalla por pantalla
+mongosh rendimiento/medir.js   # executionTimeMillis sin índices y con índices
+```
+
+`db/setup.js` **borra la base `vinoteca`** y la vuelve a crear en unos 15 segundos. Después se puede usar la aplicación (`npm start`) sobre esa misma base.
+
+| Script | Qué hace |
+| --- | --- |
+| [`db/00_crear_db.js`](db/00_crear_db.js) | Crea las 9 colecciones con los validadores `$jsonSchema` de `src/db/esquemas.js` |
+| [`db/01_datos.js`](db/01_datos.js) | Carga los datos de ejemplo de [`db/datos/`](db/datos/) (Extended JSON: conserva `ObjectId`, fechas y `Decimal128`) |
+| [`db/02_datos_masivos.js`](db/02_datos_masivos.js) | Genera 200.000 productos, 10.000 usuarios y 50.000 pedidos, siempre los mismos (semilla fija) |
+| [`db/03_indices.js`](db/03_indices.js) | Crea los índices de `src/db/indices.js`, después de la carga |
+| [`db/04_vistas.js`](db/04_vistas.js) | Crea las vistas para Compass: `consulta_01` … `consulta_10` y `pagina_vinos` |
+| [`db/05_verificar.js`](db/05_verificar.js) | Muestra el volumen, prueba que los validadores e índices únicos rechacen documentos inválidos y controla la integridad de las referencias |
+
+Cada script también se puede correr solo, por ejemplo `mongosh db/05_verificar.js`. Las cantidades de la carga masiva están en [`db/config.js`](db/config.js); para una base chica, en PowerShell: `$env:PRODUCTOS=0; $env:USUARIOS=0; $env:PEDIDOS=0; mongosh db/setup.js`.
+
+- **Consultas por pantalla:** [`consultas/1_inicio.js`](consultas/1_inicio.js) a [`consultas/7_analitica.js`](consultas/7_analitica.js), con los resultados reales en [docs/implementacion/consultas-por-pantalla.md](docs/implementacion/consultas-por-pantalla.md).
+- **Rendimiento:** `getIndexes`, `dropIndex`, `createIndex` y `explain("executionStats")`, con los resultados en [docs/implementacion/rendimiento-mongosh.md](docs/implementacion/rendimiento-mongosh.md).
+- **En Compass:** las vistas (ícono del ojo) muestran las 10 consultas avanzadas y la página de Vinos con un clic; en cada colección, **Validation** muestra el `$jsonSchema`, **Indexes** los índices y **Explain Plan** el plan de una consulta.
+- **Backup:** los comandos `mongodump`, `mongorestore`, `mongoexport` y `mongoimport` están en [docs/implementacion/backup.md](docs/implementacion/backup.md).
 
 ## Comandos
 

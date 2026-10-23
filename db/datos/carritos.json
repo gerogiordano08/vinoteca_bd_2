@@ -1,0 +1,189 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f2"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee2314"
+  },
+  "estado": "activo",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1792335600000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22fa"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1792334400000"
+     }
+    }
+   },
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230c"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1792334520000"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f3"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee2316"
+  },
+  "estado": "abandonado",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1788231600000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2303"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1788231600000"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f4"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee2317"
+  },
+  "estado": "abandonado",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1788577200000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee22fd"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1788577200000"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f5"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee2318"
+  },
+  "estado": "abandonado",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1788922800000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230f"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1788922800000"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f6"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee2319"
+  },
+  "estado": "abandonado",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1789268400000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee2308"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1789268400000"
+     }
+    }
+   }
+  ]
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee23f7"
+  },
+  "usuarioId": {
+   "$oid": "6adb34b429cffdc485ee231a"
+  },
+  "estado": "abandonado",
+  "actualizadoEn": {
+   "$date": {
+    "$numberLong": "1789614000000"
+   }
+  },
+  "items": [
+   {
+    "productoId": {
+     "$oid": "6adb34b429cffdc485ee230c"
+    },
+    "cantidad": {
+     "$numberInt": "1"
+    },
+    "agregadoEn": {
+     "$date": {
+      "$numberLong": "1789614000000"
+     }
+    }
+   }
+  ]
+ }
+]

@@ -1,0 +1,346 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b4be9a33984b09f6ab"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b4b2a37e45f66b84e1"
+   },
+   "nombre": "Tomás",
+   "apellido": "Tintos"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "consulta": {
+   "orden": "nombre_asc",
+   "categoriaIds": [
+    {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    }
+   ],
+   "colores": [
+    "Tinto"
+   ]
+  },
+  "paginacion": {
+   "paginaActual": {
+    "$numberInt": "1"
+   },
+   "productosPorPagina": {
+    "$numberInt": "12"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5be9a33984b09f6ac"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b4b2a37e45f66b84e3"
+   },
+   "nombre": "Blanca",
+   "apellido": "Blancos"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "consulta": {
+   "orden": "nombre_asc",
+   "categoriaIds": [
+    {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    }
+   ],
+   "colores": [
+    "Blanco"
+   ]
+  },
+  "paginacion": {
+   "paginaActual": {
+    "$numberInt": "1"
+   },
+   "productosPorPagina": {
+    "$numberInt": "12"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5be9a33984b09f6ad"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e5"
+   },
+   "nombre": "Rocío",
+   "apellido": "Rosados"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "consulta": {
+   "orden": "nombre_asc",
+   "categoriaIds": [
+    {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    }
+   ],
+   "colores": [
+    "Rosado"
+   ]
+  },
+  "paginacion": {
+   "paginaActual": {
+    "$numberInt": "1"
+   },
+   "productosPorPagina": {
+    "$numberInt": "12"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5be9a33984b09f6ae"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e7"
+   },
+   "nombre": "Emilia",
+   "apellido": "Espumantes"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "consulta": {
+   "orden": "nombre_asc",
+   "categoriaIds": [
+    {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    }
+   ]
+  },
+  "paginacion": {
+   "paginaActual": {
+    "$numberInt": "1"
+   },
+   "productosPorPagina": {
+    "$numberInt": "12"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5be9a33984b09f6af"
+  },
+  "usuario": {
+   "usuarioId": {
+    "$oid": "6adb34b5b2a37e45f66b84e9"
+   },
+   "nombre": "Alejo",
+   "apellido": "Accesorios"
+  },
+  "tienda": {
+   "configuracionId": {
+    "$oid": "6adb34b429cffdc485ee2313"
+   },
+   "nombreComercial": "vinoteca",
+   "logoUrl": "/img/logo.svg",
+   "monedaBase": "ARS"
+  },
+  "carrito": {
+   "cantidadArticulos": {
+    "$numberInt": "0"
+   }
+  },
+  "categorias": [
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f2"
+    },
+    "nombre": "Vinos",
+    "descripcion": "Tintos, blancos y rosados",
+    "slug": "vinos"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f3"
+    },
+    "nombre": "Espumantes",
+    "descripcion": "Para brindar y compartir",
+    "slug": "espumantes"
+   },
+   {
+    "categoriaId": {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    },
+    "nombre": "Accesorios",
+    "descripcion": "Para servir y conservar",
+    "slug": "accesorios"
+   }
+  ],
+  "consulta": {
+   "orden": "nombre_asc",
+   "categoriaIds": [
+    {
+     "$oid": "6adb34b429cffdc485ee22f4"
+    }
+   ]
+  },
+  "paginacion": {
+   "paginaActual": {
+    "$numberInt": "1"
+   },
+   "productosPorPagina": {
+    "$numberInt": "12"
+   }
+  }
+ }
+]

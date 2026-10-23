@@ -1,0 +1,28 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2313"
+  },
+  "nombreComercial": "vinoteca",
+  "logoUrl": "/img/logo.svg",
+  "emailContacto": "contacto@vinoteca.test",
+  "telefonoContacto": "261 400-0000",
+  "direccionComercial": {
+   "calleNumero": "Av. San Martín 1234",
+   "localidad": "Ciudad de Mendoza",
+   "provincia": "Mendoza",
+   "codigoPostal": "5500",
+   "horario": "Lunes a sábado de 10 a 20 h"
+  },
+  "monedaBase": "ARS",
+  "retiroHabilitado": true,
+  "enviosHabilitados": true,
+  "montoEnvioBase": {
+   "$numberDecimal": "4500.00"
+  },
+  "redesSociales": {
+   "instagram": "https://instagram.com/vinoteca.ejemplo",
+   "whatsapp": "https://wa.me/5492614000000"
+  }
+ }
+]
