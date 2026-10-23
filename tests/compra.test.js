@@ -63,6 +63,24 @@ test('el envío suma montoEnvioBase de configuracion_tienda', async () => {
   assert.equal(pedido.direccionEntrega.tipo, 'envio');
 });
 
+test('doble clic en Confirmar: un solo pedido y el stock se descuenta una vez', async () => {
+  const copa = await db.collection('productos').findOne({ sku: 'ACC-COP-CRI' });
+  await carritos.agregar(db, ana._id, copa._id, 2);
+  const pedidosAntes = await db.collection('pedidos').countDocuments({ usuarioId: ana._id });
+  const datos = { contacto, entrega: { tipo: 'retiro' } };
+
+  const resultados = await Promise.allSettled([pedidos.confirmar(db, ana._id, datos), pedidos.confirmar(db, ana._id, datos)]);
+  const creados = resultados.filter((r) => r.status === 'fulfilled').map((r) => r.value.numero);
+  assert.ok(creados.length >= 1);
+  assert.equal(new Set(creados).size, 1);
+  for (const r of resultados.filter((x) => x.status === 'rejected')) assert.ok(r.reason instanceof usuarios.ErrorDeValidacion);
+  assert.equal(await db.collection('pedidos').countDocuments({ usuarioId: ana._id }), pedidosAntes + 1);
+  assert.equal((await db.collection('productos').findOne({ _id: copa._id })).stockActual, copa.stockActual - 2);
+
+  // Reenviar el formulario después devuelve el mismo pedido en lugar de fallar.
+  assert.equal((await pedidos.confirmar(db, ana._id, datos)).numero, creados[0]);
+});
+
 test('sin stock suficiente no se registra el pedido y se devuelve lo descontado', async () => {
   const decantador = await db.collection('productos').findOne({ sku: 'ACC-DEC-VID' }); // 5 unidades
   const sacacorchos = await db.collection('productos').findOne({ sku: 'ACC-SAC-CLA' });
@@ -77,6 +95,16 @@ test('sin stock suficiente no se registra el pedido y se devuelve lo descontado'
   assert.equal(await db.collection('pedidos').countDocuments(), pedidosAntes);
   assert.equal((await db.collection('productos').findOne({ _id: sacacorchos._id })).stockActual, stockSacacorchos);
   assert.equal(await db.collection('carritos').countDocuments({ usuarioId: ana._id, estado: 'activo' }), 1);
+  // El carrito queda liberado para corregirlo y volver a confirmar.
+  assert.equal((await db.collection('carritos').findOne({ usuarioId: ana._id, estado: 'activo' })).confirmandoEn, undefined);
+});
+
+test('las redirecciones solo van a rutas internas', () => {
+  const { destinoSeguro } = require('../src/rutas/comunes');
+  assert.equal(destinoSeguro('/catalogo?pagina=2'), '/catalogo?pagina=2');
+  for (const externo of ['https://otro.sitio', '//otro.sitio', '/\\otro.sitio', '/\\/otro.sitio', undefined]) {
+    assert.equal(destinoSeguro(externo, '/'), '/');
+  }
 });
 
 test('registro, inicio de sesión y cambio de contraseña', async () => {

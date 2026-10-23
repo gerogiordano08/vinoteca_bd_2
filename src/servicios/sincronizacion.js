@@ -2,6 +2,7 @@
 // origen de los datos y inicio/catalogo guardan copias. Cada función se llama después de modificar
 // el dato de origen y actualiza solo las copias afectadas.
 const r = require('./resumenes');
+const { olvidarOpcionesDeFiltro } = require('./consultaCatalogo');
 
 const PAGINAS = ['inicio', 'catalogo'];
 
@@ -41,6 +42,7 @@ async function actualizarDestacados(db) {
 
 /** Los productos solo tienen copias persistidas en Inicio; Catálogo los consulta directamente. */
 async function alCambiarProducto(db) {
+  olvidarOpcionesDeFiltro(db);
   await actualizarDestacados(db);
 }
 
@@ -49,6 +51,7 @@ async function alCambiarCategoria(db) {
   const categorias = await r.copiaCategorias(db);
   await Promise.all(PAGINAS.map((p) => db.collection(p).updateMany({}, { $set: { categorias } })));
   // Activar o desactivar una categoría cambia qué productos se muestran.
+  olvidarOpcionesDeFiltro(db);
   await actualizarDestacados(db);
 }
 

@@ -8,6 +8,9 @@ const indices = {
     { key: { activo: 1, categoriaId: 1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_nombre' },
     { key: { activo: 1, categoriaId: 1, destacado: -1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_destacados' },
     { key: { activo: 1, categoriaId: 1, precio: 1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_precio_asc' },
+    // "Mayor precio" ordena { precio: -1, nombre: 1 }: con direcciones mezcladas el índice anterior no
+    // sirve recorrido al revés y MongoDB ordenaría en memoria todos los productos.
+    { key: { activo: 1, categoriaId: 1, precio: -1, nombre: 1, _id: 1 }, name: 'catalogo_categoria_precio_desc' },
     // Inicio: destacados activos con stock, ordenados por nombre.
     { key: { destacado: 1, activo: 1, nombre: 1 }, name: 'destacados_por_nombre' },
     // Filtros del catálogo sobre el subdocumento detalleVino.

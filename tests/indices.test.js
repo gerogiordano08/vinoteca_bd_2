@@ -35,12 +35,13 @@ test('migra índices sin modificar documentos, conserva índices ajenos y admite
       assert.deepEqual((await db.collection(nombre).indexes()).filter(i => i.unique), unicosAntes[nombre]);
     }
 
-    // Los tres índices pueden resolver el orden completo para una categoría concreta.
+    // Los cuatro índices pueden resolver el orden completo para una categoría concreta.
     const categoria = await db.collection('categorias').findOne({ slug: 'vinos' });
     const casos = [
       ['catalogo_categoria_nombre', { nombre: 1, _id: 1 }],
       ['catalogo_categoria_destacados', { destacado: -1, nombre: 1, _id: 1 }],
       ['catalogo_categoria_precio_asc', { precio: 1, nombre: 1, _id: 1 }],
+      ['catalogo_categoria_precio_desc', { precio: -1, nombre: 1, _id: 1 }],
     ];
     for (const [indice, orden] of casos) {
       const e = await db.collection('productos').find({ activo: true, categoriaId: categoria._id }).sort(orden).limit(12).hint(indice).explain('executionStats');

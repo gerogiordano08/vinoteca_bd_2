@@ -1,6 +1,6 @@
 # Guía de los índices de la vinoteca
 
-Esta guía explica los índices definidos en [src/db/indices.js](../../src/db/indices.js), su organización y las consultas que ayudan a resolver. El esquema actual define **17 índices propios**. MongoDB agrega un índice `_id_` en cada una de las nueve colecciones: **26 índices en total** en una base inicializada sin índices manuales adicionales.
+Esta guía explica los índices definidos en [src/db/indices.js](../../src/db/indices.js), su organización y las consultas que ayudan a resolver. El esquema actual define **18 índices propios**. MongoDB agrega un índice `_id_` en cada una de las nueve colecciones: **27 índices en total** en una base inicializada sin índices manuales adicionales.
 
 Los resultados medidos antes y después del cambio están en [indices.md](indices.md). Esta guía explica su funcionamiento; no reemplaza la medición con `explain`.
 
@@ -100,7 +100,15 @@ Sirve al orden “destacados” del Catálogo, que muestra tanto destacados como
 
 Dentro del estado y categoría consultados, organiza por precio de menor a mayor. Si dos productos tienen el mismo precio, desempata por nombre y después por `_id`. Puede ayudar también a seleccionar rangos de precio cuando se utilizan los campos anteriores.
 
-El orden descendente actual del catálogo es `{ precio: -1, nombre: 1, _id: 1 }`. Recorrer este índice al revés también invertiría nombre e identificador; por eso no resuelve completamente ese orden mixto. La medición mostró que precio descendente todavía requiere ordenar y examinar muchas claves.
+El orden descendente del catálogo es `{ precio: -1, nombre: 1, _id: 1 }`. Recorrer este índice al revés también invertiría nombre e identificador; por eso no resuelve ese orden mixto y para él existe el índice siguiente.
+
+### `catalogo_categoria_precio_desc`
+
+```js
+{ activo: 1, categoriaId: 1, precio: -1, nombre: 1, _id: 1 }
+```
+
+Dentro del estado y categoría, organiza por precio de mayor a menor y desempata por nombre e identificador ascendentes: exactamente el orden “Mayor precio” del Catálogo. Sin él, MongoDB ordenaba en memoria todos los productos activos (etapa `SORT` sobre 200.024 claves, unos 280 ms); con él lee solo los 12 de la página (6 ms). Ver [indices.md](indices.md#precio-descendente-índice-agregado).
 
 ### `destacados_por_nombre`
 
