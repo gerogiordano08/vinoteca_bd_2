@@ -58,6 +58,21 @@ test('mongosh: $push con $each agrega dos direcciones y $pop las quita', opcione
   assert.deepEqual(await estado(), antes);
 });
 
+test('mongosh: setup crea la serie temporal historial_precios y 3.4 la consulta por mes', opciones, async () => {
+  const [info] = await db.listCollections({ name: 'historial_precios' }).toArray();
+  assert.equal(info.type, 'timeseries');
+  assert.deepEqual(
+    { timeField: info.options.timeseries.timeField, metaField: info.options.timeseries.metaField },
+    { timeField: 'fecha', metaField: 'productoId' },
+  );
+  assert.ok(await db.collection('historial_precios').countDocuments() > 25);
+  assert.ok((await db.collection('historial_precios').indexes()).some((i) => i.name === 'productoId_1_fecha_1'));
+
+  const salida = mongosh('consultas/3_producto.js');
+  const [, n] = salida.match(/3\.4 Precio del Malbec Reserva por mes \(historial_precios\)\s+\((\d+) resultado/) || [];
+  assert.ok(Number(n) > 0, salida);
+});
+
 test('mongosh: la compra de prueba de 5_pedido.js se deshace', opciones, async () => {
   const stock = async () => (await db.collection('productos').findOne({ sku: 'VIN-MAL-RES' })).stockActual;
   const [stockAntes, pedidosAntes] = [await stock(), await db.collection('pedidos').countDocuments()];

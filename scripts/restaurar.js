@@ -37,6 +37,8 @@ async function main() {
   const db = cliente.db(destino);
   console.log(`Restaurado ${path.basename(archivo)} en la base ${destino}:`);
   for (const nombre of COLECCIONES) console.log(`  ${nombre.padEnd(22)} ${await db.collection(nombre).countDocuments()}`);
+  const [serie] = await db.listCollections({ name: 'historial_precios' }).toArray();
+  if (serie) console.log(`  ${'historial_precios'.padEnd(22)} ${await db.collection('historial_precios').countDocuments()} (${serie.type})`);
   const validador = (await db.listCollections({ name: 'productos' }).toArray())[0];
   console.log(`  Validador $jsonSchema de productos: ${validador && validador.options.validator ? 'restaurado' : 'falta'}`);
   console.log(`  Índices de productos: ${(await db.collection('productos').indexes()).length}`);

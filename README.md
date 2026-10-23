@@ -48,7 +48,7 @@ Los atajos `npm run consulta` y `npm run rendimiento` cargan `.env`. Los demás 
 Todo el trabajo con la base también se puede hacer sin Node.js, con los scripts de **mongosh** (desde la carpeta del proyecto) y revisando el resultado en **Compass** (`mongodb://localhost:27017`, base `vinoteca`):
 
 ```bash
-mongosh db/setup.js            # crea la base desde cero: colecciones, datos, carga masiva, índices, vistas y verificación
+mongosh db/setup.js            # crea la base desde cero: colecciones, datos, carga masiva, índices, vista, verificación y serie temporal
 mongosh consultas/todas.js     # todas las consultas de la aplicación, pantalla por pantalla
 mongosh rendimiento/medir.js   # executionTimeMillis sin índices y con índices
 ```
@@ -63,11 +63,13 @@ mongosh rendimiento/medir.js   # executionTimeMillis sin índices y con índices
 | [`db/03_indices.js`](db/03_indices.js) | Crea los índices de `src/db/indices.js`, después de la carga |
 | [`db/04_vistas.js`](db/04_vistas.js) | Crea las vistas para Compass: `consulta_01` … `consulta_10` y `pagina_vinos` |
 | [`db/05_verificar.js`](db/05_verificar.js) | Muestra el volumen, prueba que los validadores e índices únicos rechacen documentos inválidos y controla la integridad de las referencias |
+| [`db/06_historial_precios.js`](db/06_historial_precios.js) | Crea la colección de **series temporales** `historial_precios` (`timeField: fecha`, `metaField: productoId`) con el precio cobrado cada día en los pedidos y el precio actual; muestra el índice que crea MongoDB y el plan de una consulta por rango |
 
 Cada script también se puede correr solo, por ejemplo `mongosh db/05_verificar.js`. Las cantidades de la carga masiva están en [`db/config.js`](db/config.js); para una base chica, en PowerShell: `$env:PRODUCTOS=0; $env:USUARIOS=0; $env:PEDIDOS=0; mongosh db/setup.js`.
 
 - **Consultas por pantalla:** [`consultas/1_inicio.js`](consultas/1_inicio.js) a [`consultas/7_analitica.js`](consultas/7_analitica.js), con los resultados reales en [docs/implementacion/consultas-por-pantalla.md](docs/implementacion/consultas-por-pantalla.md).
 - **Rendimiento:** `getIndexes`, `dropIndex`, `createIndex` y `explain("executionStats")`, con los resultados en [docs/implementacion/rendimiento-mongosh.md](docs/implementacion/rendimiento-mongosh.md).
+- **Serie temporal:** `historial_precios` guarda cada precio con su fecha. La consulta 3.4 lo agrupa por mes con `$dateTrunc`, y la aplicación agrega un punto cada vez que cambia un precio (`actualizarProducto`). MongoDB no admite `$jsonSchema` en estas colecciones: los tipos se controlan al insertar ([`src/db/historialPrecios.js`](src/db/historialPrecios.js)).
 - **En Compass:** las vistas (ícono del ojo) muestran las 10 consultas avanzadas y la página de Vinos con un clic; en cada colección, **Validation** muestra el `$jsonSchema`, **Indexes** los índices y **Explain Plan** el plan de una consulta.
 - **Backup:** los comandos `mongodump`, `mongorestore`, `mongoexport` y `mongoimport` están en [docs/implementacion/backup.md](docs/implementacion/backup.md).
 
