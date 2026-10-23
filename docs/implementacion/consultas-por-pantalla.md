@@ -1,6 +1,6 @@
 # Consultas por pantalla (mongosh)
 
-Todas las consultas que hace la aplicación, ordenadas por pantalla, escritas para **mongosh** con los operadores vistos en clase (`find`, `sort`, `skip`, `limit`, `distinct`, `countDocuments`, `aggregate` con `$match`, `$group`, `$lookup`, `$unwind`, `$project`, `$sum`, y escrituras con `updateOne`, `insertOne` y `deleteOne`). Son equivalentes a las que ejecuta el código de `src/servicios/`.
+Todas las consultas que hace la aplicación, ordenadas por pantalla, escritas para **mongosh** con los operadores vistos en clase (`find`, `sort`, `skip`, `limit`, `distinct`, `countDocuments`, `aggregate` con `$match`, `$group`, `$lookup`, `$unwind`, `$project`, `$sum`, y escrituras con `updateOne`, `insertOne` y `deleteOne`, más los operadores de arreglos de la clase "Gestionando arrays": `$push` con `$each`, `$addToSet`, `$pop` y `$pull`). Son equivalentes a las que ejecuta el código de `src/servicios/`.
 
 ```bash
 mongosh consultas/todas.js          # todas las pantallas
@@ -30,6 +30,7 @@ Los documentos de ejemplo se buscan por sus claves naturales (email, SKU, slug) 
 | 1.3 | "Una selección para empezar" | `aggregate`: `$match` destacados con stock, `$lookup` a `categorias`, `$match` categoría activa, `$sort` por nombre, `$limit: 4` |
 | 1.4 | Contador "Carrito (n)" | `$sum` de `items.cantidad` del carrito activo |
 | 1.5 | Inicio guardado de un usuario | `findOne` en `inicio` por `usuario.usuarioId` (índice único `inicio_por_usuario`) |
+| 1.6 | Agregar productos a la selección propia (escritura, se deshace) | `$addToSet` con `$each`: agrega dos productos de una vez y omite el que ya estaba. Busca la página por posición del arreglo (`'seleccionProductoIds.2': { $exists: false }`) para no pasar de 4 |
 
 ```text
 ▸ 1.3 Productos destacados   (4 resultados, 3 ms)
@@ -43,9 +44,14 @@ Los documentos de ejemplo se buscan por sus claves naturales (email, SKU, slug) 
 
 ▸ 1.5 Inicio personalizado de demo-tintos   (1 ms)
     { usuario: { usuarioId: …6b84e1, nombre: "Tomás", apellido: "Tintos" }, carrito: { cantidadArticulos: 0 }, productosDestacados: [{ nombre: "Blend de Altura", precio: 24800.00 }, { nombre: "Bonarda", precio: 8900.00 }, { nombre: "Cabernet Franc Gran Reserva", precio: 32500.00 }, { nombre: "Cabernet Sauvignon", precio: 17800.00 }] }
+
+▸ 1.6 $addToSet con $each en la selección de Rocío: 1 → 2 productos (se agregó Brut Nature; el que ya estaba no se repitió)
+    deshecho: la selección vuelve a tener 1, como antes
 ```
 
 La página de Inicio de un usuario registrado es un solo documento con copias de la tienda, el carrito, las categorías y los productos: se arma con una lectura. Los visitantes ven la versión pública, que no se guarda.
+
+`$addToSet` es el operador indicado para `seleccionProductoIds` porque el validador exige que no haya repetidos (`uniqueItems`): con `$push` un producto elegido dos veces haría fallar la escritura.
 
 ## 2 · Catálogo
 
@@ -165,6 +171,7 @@ La actualización condicional del stock es atómica en cada documento. El MongoD
 | 6.2 | Mis pedidos | `find({ usuarioId }).sort({ creadoEn: -1 })` (índice `pedidos_de_usuario`) |
 | 6.3 | Detalle de un pedido | `findOne` por `usuarioId` y `numero`: ítems y dirección embebidos, con el precio histórico |
 | 6.4 | Resumen de compras | `$group` con `$sum` y `$max` sobre los pedidos no cancelados |
+| 6.5 | Agregar y quitar direcciones (escrituras, se deshacen) | `$push` con `$each` agrega dos direcciones en una operación; `$pop: { direcciones: 1 }` quita la última (con `-1`, la primera) |
 
 ```text
 ▸ 6.2 Mis pedidos de cliente01   (6 resultados, 1 ms)
@@ -177,9 +184,16 @@ La actualización condicional del stock es atómica en cada documento. El MongoD
 
 ▸ 6.4 Resumen de compras de cliente01   (1 resultado, 2 ms)
     { pedidos: 3, gastado: 119900.00, ultimaCompra: 2026-07-22 17:00 }
+
+▸ 6.5 Direcciones de Ana después de $push con $each   (1 resultado, 2 ms)
+    { cantidad: 3, alias: ["Casa", "Trabajo", "Casa de mis padres"] }
+
+▸ 6.5 $pop: 1 dos veces quitó las dos últimas: quedan 1 (antes 1)
 ```
 
 En 6.3 la copa figura a $7.400, el precio de cuando se compró; hoy cuesta $7.500.
+
+En la aplicación, quitar una dirección cualquiera (no solo la última) se hace con `$unset` de la posición y `$pull` de los nulos (`src/rutas/cuenta.js`). `tests/consultas-mongosh.test.js` corre estos scripts sobre una base de prueba y comprueba que las escrituras de 1.6, 5 y 6.5 dejan todo como estaba.
 
 ## 7 · Reportes
 
