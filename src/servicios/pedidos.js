@@ -39,9 +39,45 @@ function validarEntrega({ contacto, entrega }, tienda) {
   return errores;
 }
 
+// Si una confirmación se corta a mitad de camino, el carrito vuelve a poder confirmarse pasado este tiempo.
+const ESPERA_CONFIRMACION_MS = 30 * 1000;
+// Un segundo envío del formulario dentro de este tiempo devuelve el pedido recién creado.
+const VENTANA_REENVIO_MS = 60 * 1000;
+
+/**
+ * Toma el carrito activo para confirmarlo con una sola actualización atómica (marca confirmandoEn).
+ * Así un doble clic en "Confirmar" no genera dos pedidos ni descuenta el stock dos veces.
+ * Devuelve el carrito tomado o el pedido que ya se creó con un envío anterior.
+ */
+async function tomarCarrito(db, usuarioId) {
+  const ahora = new Date();
+  const carrito = await db.collection('carritos').findOneAndUpdate(
+    {
+      usuarioId,
+      estado: 'activo',
+      $or: [{ confirmandoEn: { $exists: false } }, { confirmandoEn: { $lt: new Date(ahora - ESPERA_CONFIRMACION_MS) } }],
+    },
+    { $set: { confirmandoEn: ahora } },
+    { returnDocument: 'after' },
+  );
+  if (carrito) return { carrito };
+  if (await db.collection('carritos').countDocuments({ usuarioId, estado: 'activo' })) {
+    throw new ErrorDeValidacion('Tu pedido ya se está confirmando. Lo vas a ver en Mis pedidos.');
+  }
+  const reciente = await db.collection('pedidos').findOne(
+    { usuarioId, creadoEn: { $gte: new Date(ahora - VENTANA_REENVIO_MS) } },
+    { sort: { creadoEn: -1 } },
+  );
+  if (reciente) return { pedido: reciente };
+  throw new ErrorDeValidacion('Tu carrito está vacío.');
+}
+
+const liberarCarrito = (db, carrito) => db.collection('carritos').updateOne({ _id: carrito._id }, { $unset: { confirmandoEn: '' } });
+
 /**
  * Convierte el carrito activo en un pedido.
  *
+ * 0. Toma el carrito (tomarCarrito) para que dos envíos simultáneos no lo conviertan dos veces.
  * 1. Verifica de nuevo precios y stock contra productos (el modelo lo pide al confirmar la compra).
  * 2. Descuenta el stock con una actualización condicional por producto ({ stockActual: { $gte } }),
  *    que es atómica en cada documento. Si un producto ya no alcanza, devuelve lo descontado.
@@ -54,8 +90,19 @@ async function confirmar(db, usuarioId, datos) {
   const errores = validarEntrega(datos, tienda);
   if (errores.length) throw new ErrorDeValidacion(errores.join(' '));
 
-  const carrito = await db.collection('carritos').findOne({ usuarioId, estado: 'activo' });
-  if (!carrito || !carrito.items.length) throw new ErrorDeValidacion('Tu carrito está vacío.');
+  const tomado = await tomarCarrito(db, usuarioId);
+  if (tomado.pedido) return tomado.pedido;
+  const { carrito } = tomado;
+  try {
+    return await convertir(db, usuarioId, datos, tienda, carrito);
+  } catch (error) {
+    await liberarCarrito(db, carrito);
+    throw error;
+  }
+}
+
+async function convertir(db, usuarioId, datos, tienda, carrito) {
+  if (!carrito.items.length) throw new ErrorDeValidacion('Tu carrito está vacío.');
 
   const ids = carrito.items.map((i) => i.productoId);
   const productos = await db.collection('productos').find({ _id: { $in: ids } }).toArray();
@@ -134,7 +181,10 @@ async function confirmar(db, usuarioId, datos) {
     }
   }
 
-  await db.collection('carritos').updateOne({ _id: carrito._id }, { $set: { estado: 'convertido', actualizadoEn: new Date() } });
+  await db.collection('carritos').updateOne(
+    { _id: carrito._id },
+    { $set: { estado: 'convertido', actualizadoEn: new Date() }, $unset: { confirmandoEn: '' } },
+  );
   await alCambiarCarrito(db, usuarioId);
   await alCambiarProducto(db);
   return pedido;

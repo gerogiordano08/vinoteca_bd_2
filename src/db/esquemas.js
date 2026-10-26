@@ -181,6 +181,8 @@ const esquemas = {
       },
       actualizadoEn: fecha,
       estado: { enum: ['activo', 'convertido', 'abandonado'] },
+      // Marca temporal mientras se confirma la compra (evita convertir dos veces el mismo carrito).
+      confirmandoEn: fecha,
     },
   },
 

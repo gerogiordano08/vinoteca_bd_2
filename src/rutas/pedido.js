@@ -46,6 +46,7 @@ router.post('/confirmar', async (req, res) => {
     if (!(error instanceof ErrorDeValidacion)) throw error;
     req.session.formularioPedido = b;
     avisar(req, 'error', error.message);
+    if (/Mis pedidos/.test(error.message)) return res.redirect('/cuenta/pedidos');
     res.redirect(/carrito|stock|venta/i.test(error.message) ? '/carrito' : '/pedido/finalizar');
   }
 });

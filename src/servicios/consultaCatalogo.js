@@ -107,8 +107,26 @@ async function ejecutarConsulta(db, consulta, paginaPedida, productosPorPagina) 
   };
 }
 
+// Los dos distinct recorren todos los productos activos (con 200.000 productos, unos 300 ms cada uno)
+// y su resultado cambia muy poco: se guarda en memoria un minuto y se descarta al modificar
+// productos o categorías desde la aplicación (sincronizacion.js).
+const VIGENCIA_OPCIONES_MS = 60 * 1000;
+const opcionesEnMemoria = new WeakMap();
+
+function olvidarOpcionesDeFiltro(db) {
+  opcionesEnMemoria.delete(db);
+}
+
 /** Colores y varietales disponibles para filtrar, obtenidos de los productos del catálogo. */
 async function opcionesDeFiltro(db) {
+  const guardadas = opcionesEnMemoria.get(db);
+  if (guardadas && Date.now() - guardadas.hora < VIGENCIA_OPCIONES_MS) return guardadas.opciones;
+  const opciones = await calcularOpcionesDeFiltro(db);
+  opcionesEnMemoria.set(db, { hora: Date.now(), opciones });
+  return opciones;
+}
+
+async function calcularOpcionesDeFiltro(db) {
   const activas = (await db.collection('categorias').find({ activa: true }, { projection: { _id: 1 } }).toArray()).map((c) => c._id);
   const base = { activo: true, categoriaId: { $in: activas } };
   const [colores, varietales] = await Promise.all([
@@ -137,4 +155,6 @@ function parametrosDeConsulta(consulta, categorias = []) {
   return p;
 }
 
-module.exports = { ORDENES, consultaDesdeParametros, filtroDeConsulta, ejecutarConsulta, opcionesDeFiltro, parametrosDeConsulta };
+module.exports = {
+  ORDENES, consultaDesdeParametros, filtroDeConsulta, ejecutarConsulta, opcionesDeFiltro, olvidarOpcionesDeFiltro, parametrosDeConsulta,
+};

@@ -39,11 +39,22 @@ Los índices nuevos resuelven el orden general por nombre, destacados y precio a
 
 ## Límites y próximos experimentos
 
-- **Precio descendente:** la consulta pide `{ precio: -1, nombre: 1, _id: 1 }`. Recorrer al revés el índice ascendente también invertiría los desempates. El plan actual sigue ordenando aparte y recorre 200.024 claves para la búsqueda general, aunque obtiene solo 120 documentos completos. Un posible siguiente experimento es un índice con el orden descendente exacto; no se creó en esta revisión.
+- **Precio descendente:** resuelto después, ver la sección siguiente.
 - **Color/varietal, bodega y texto ordenados por nombre:** conservan índices útiles para el filtro, pero sus planes todavía ordenan los resultados. No se agregaron todas las combinaciones posibles.
 - **Conteos y filtros disponibles:** contar todos los resultados y obtener colores/varietales son consultas distintas de la página de 120 productos y deben medirse por separado.
 - **Páginas lejanas:** estas pruebas corresponden a la primera página. `$skip` tiene un costo creciente y no desaparece por agregar índices.
 - **Sincronización:** se retiraron índices que el algoritmo actual no consulta. Si se cambia para actualizar solo los Inicios afectados, habrá que diseñar el índice para el nuevo filtro, considerando `seleccionProductoIds` para productos ocultos temporalmente por falta de stock.
+
+## Precio descendente: índice agregado
+
+Medición del 23/10/2026, misma base (200.025 productos), primera página de 12 del Catálogo completo:
+
+| Orden `{ precio: -1, nombre: 1, _id: 1 }` | Índice elegido | `SORT` | Docs | ms |
+| --- | --- | --- | ---: | ---: |
+| Antes | `catalogo_categoria_precio_asc` | Sí, en memoria | 12 | 279 |
+| Con `catalogo_categoria_precio_desc` | `catalogo_categoria_precio_desc` | No | 12 | 6 |
+
+Recorrer al revés el índice ascendente invertiría también nombre e `_id`, así que hace falta un índice con el orden exacto. El total de índices de la base pasa de 26 a 27.
 
 ## Aplicar y reproducir
 
