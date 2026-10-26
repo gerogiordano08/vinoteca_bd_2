@@ -1,0 +1,1212 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2314"
+  },
+  "nombre": "Ana",
+  "apellido": "Pérez",
+  "email": "ana@example.com",
+  "telefono": "261 555-0101",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Belgrano 456",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": "Portón negro"
+   }
+  ],
+  "passwordHash": "$2b$10$VmaYNgYmUgXA3rWtkclz/eSOXsDbeDc7jd/3jlkNc06FQZsKzTyJ.",
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1767618000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2315"
+  },
+  "nombre": "Administración",
+  "apellido": "Vinoteca",
+  "email": "admin@vinoteca.test",
+  "telefono": "261 400-0000",
+  "rol": "administrador",
+  "direcciones": [],
+  "passwordHash": "$2b$10$391vtoe4UtpurFK4gZ0iRu7q0c6nWzKK2QnNsFMT96uQKrol4U1My",
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1767618000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2316"
+  },
+  "nombre": "Micaela",
+  "apellido": "Herrera",
+  "email": "cliente01@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1000",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 100 344",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1773975600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2317"
+  },
+  "nombre": "Facundo",
+  "apellido": "Fernández",
+  "email": "cliente02@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1001",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 101 434",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1784084400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2318"
+  },
+  "nombre": "Santiago",
+  "apellido": "Herrera",
+  "email": "cliente03@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1002",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 102 273",
+    "localidad": "Ciudad de Mendoza",
+    "provincia": "Mendoza",
+    "codigoPostal": "5500",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1776135600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2319"
+  },
+  "nombre": "Florencia",
+  "apellido": "Díaz",
+  "email": "cliente04@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1003",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 103 231",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1780369200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231a"
+  },
+  "nombre": "Nicolás",
+  "apellido": "Sosa",
+  "email": "cliente05@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1004",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 104 185",
+    "localidad": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "codigoPostal": "5507",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1780282800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231b"
+  },
+  "nombre": "Facundo",
+  "apellido": "Álvarez",
+  "email": "cliente06@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1005",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 105 537",
+    "localidad": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "codigoPostal": "5507",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1771297200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231c"
+  },
+  "nombre": "Micaela",
+  "apellido": "Sosa",
+  "email": "cliente07@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1006",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 106 839",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770951600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231d"
+  },
+  "nombre": "Lucía",
+  "apellido": "Herrera",
+  "email": "cliente08@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1007",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 107 198",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1777604400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231e"
+  },
+  "nombre": "Micaela",
+  "apellido": "Sosa",
+  "email": "cliente09@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1008",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 108 738",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1780369200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee231f"
+  },
+  "nombre": "Micaela",
+  "apellido": "Benítez",
+  "email": "cliente10@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1009",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 109 740",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1771902000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2320"
+  },
+  "nombre": "Bruno",
+  "apellido": "López",
+  "email": "cliente11@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1010",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 110 245",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1768791600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2321"
+  },
+  "nombre": "Rocío",
+  "apellido": "Díaz",
+  "email": "cliente12@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1011",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 111 599",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1786935600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2322"
+  },
+  "nombre": "Ignacio",
+  "apellido": "Martínez",
+  "email": "cliente13@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1012",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 112 175",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": false,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1773975600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2323"
+  },
+  "nombre": "Julieta",
+  "apellido": "Ruiz",
+  "email": "cliente14@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1013",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 113 162",
+    "localidad": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "codigoPostal": "5507",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1772506800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2324"
+  },
+  "nombre": "Florencia",
+  "apellido": "Giménez",
+  "email": "cliente15@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1014",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 114 510",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770519600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2325"
+  },
+  "nombre": "Florencia",
+  "apellido": "Martínez",
+  "email": "cliente16@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1015",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 115 771",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1773543600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2326"
+  },
+  "nombre": "Ignacio",
+  "apellido": "Suárez",
+  "email": "cliente17@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1016",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 116 428",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1773716400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2327"
+  },
+  "nombre": "Carolina",
+  "apellido": "Ruiz",
+  "email": "cliente18@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1017",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 117 464",
+    "localidad": "Ciudad de Mendoza",
+    "provincia": "Mendoza",
+    "codigoPostal": "5500",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1785812400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2328"
+  },
+  "nombre": "Bruno",
+  "apellido": "Medina",
+  "email": "cliente19@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1018",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 118 856",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1789700400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2329"
+  },
+  "nombre": "Lucía",
+  "apellido": "Acosta",
+  "email": "cliente20@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1019",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 119 486",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1789786800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232a"
+  },
+  "nombre": "Carolina",
+  "apellido": "Flores",
+  "email": "cliente21@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1020",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 120 810",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770001200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232b"
+  },
+  "nombre": "Paula",
+  "apellido": "Díaz",
+  "email": "cliente22@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1021",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 121 489",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1775962800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232c"
+  },
+  "nombre": "Matías",
+  "apellido": "Herrera",
+  "email": "cliente23@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1022",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 122 889",
+    "localidad": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "codigoPostal": "5507",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770606000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232d"
+  },
+  "nombre": "Valentina",
+  "apellido": "Martínez",
+  "email": "cliente24@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1023",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 123 681",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1786676400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232e"
+  },
+  "nombre": "Santiago",
+  "apellido": "Díaz",
+  "email": "cliente25@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1024",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 124 259",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1781838000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee232f"
+  },
+  "nombre": "Santiago",
+  "apellido": "Sosa",
+  "email": "cliente26@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1025",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 125 664",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": false,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1767495600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2330"
+  },
+  "nombre": "Sofía",
+  "apellido": "Torres",
+  "email": "cliente27@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1026",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 126 474",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1789959600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2331"
+  },
+  "nombre": "Martín",
+  "apellido": "Díaz",
+  "email": "cliente28@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1027",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 127 311",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770174000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2332"
+  },
+  "nombre": "Rocío",
+  "apellido": "Acosta",
+  "email": "cliente29@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1028",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 128 263",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1790305200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2333"
+  },
+  "nombre": "Santiago",
+  "apellido": "Medina",
+  "email": "cliente30@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1029",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 129 162",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1767668400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2334"
+  },
+  "nombre": "Santiago",
+  "apellido": "Suárez",
+  "email": "cliente31@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1030",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 130 673",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1778727600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2335"
+  },
+  "nombre": "Agustín",
+  "apellido": "Giménez",
+  "email": "cliente32@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1031",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 131 540",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1768014000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2336"
+  },
+  "nombre": "Florencia",
+  "apellido": "Martínez",
+  "email": "cliente33@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1032",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 132 446",
+    "localidad": "Ciudad de Mendoza",
+    "provincia": "Mendoza",
+    "codigoPostal": "5500",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1771815600000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2337"
+  },
+  "nombre": "Ignacio",
+  "apellido": "Medina",
+  "email": "cliente34@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1033",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 133 740",
+    "localidad": "San Juan",
+    "provincia": "San Juan",
+    "codigoPostal": "5400",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1783306800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2338"
+  },
+  "nombre": "Julieta",
+  "apellido": "Suárez",
+  "email": "cliente35@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1034",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 134 302",
+    "localidad": "Luján de Cuyo",
+    "provincia": "Mendoza",
+    "codigoPostal": "5507",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1778382000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2339"
+  },
+  "nombre": "Camila",
+  "apellido": "Ramírez",
+  "email": "cliente36@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1035",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 135 754",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1784516400000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee233a"
+  },
+  "nombre": "Ignacio",
+  "apellido": "Ramírez",
+  "email": "cliente37@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1036",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 136 140",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1772074800000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee233b"
+  },
+  "nombre": "Facundo",
+  "apellido": "Sosa",
+  "email": "cliente38@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1037",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 137 634",
+    "localidad": "Godoy Cruz",
+    "provincia": "Mendoza",
+    "codigoPostal": "5501",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1785726000000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee233c"
+  },
+  "nombre": "Bruno",
+  "apellido": "Ramírez",
+  "email": "cliente39@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1038",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 138 930",
+    "localidad": "Maipú",
+    "provincia": "Mendoza",
+    "codigoPostal": "5515",
+    "referencias": ""
+   }
+  ],
+  "activo": false,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1776913200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee233d"
+  },
+  "nombre": "Florencia",
+  "apellido": "Martínez",
+  "email": "cliente40@ejemplo.test",
+  "passwordHash": "$2b$10$.6xvDaePLp7Ly.cV9yQM6.XtYiF8KdKb8yoUpTzGZIHzBcm7BDh6G",
+  "telefono": "261 555-1039",
+  "rol": "cliente",
+  "direcciones": [
+   {
+    "alias": "Casa",
+    "calleNumero": "Calle 139 115",
+    "localidad": "Guaymallén",
+    "provincia": "Mendoza",
+    "codigoPostal": "5519",
+    "referencias": ""
+   }
+  ],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1770433200000"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b4b2a37e45f66b84e1"
+  },
+  "nombre": "Tomás",
+  "apellido": "Tintos",
+  "email": "demo-tintos@vinoteca.test",
+  "passwordHash": "$2b$10$nBa3BWoGSBgBvx4qFSWH4O6XY0jeULErU0DRGUudEKmVkcYKpFWzC",
+  "rol": "cliente",
+  "direcciones": [],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1792750772921"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b4b2a37e45f66b84e3"
+  },
+  "nombre": "Blanca",
+  "apellido": "Blancos",
+  "email": "demo-blancos@vinoteca.test",
+  "passwordHash": "$2b$10$Z/DGj3ZaJOrwoMSmiQabQebBCR8rLFWAyw0CI4dOT8FLqZZjIiqzK",
+  "rol": "cliente",
+  "direcciones": [],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1792750772998"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e5"
+  },
+  "nombre": "Rocío",
+  "apellido": "Rosados",
+  "email": "demo-rosados@vinoteca.test",
+  "passwordHash": "$2b$10$qIjKOhDDmZqV.vituAVCKOd.w/XAGOCoIW4tHExZYhefgX.biIdai",
+  "rol": "cliente",
+  "direcciones": [],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1792750773059"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e7"
+  },
+  "nombre": "Emilia",
+  "apellido": "Espumantes",
+  "email": "demo-espumantes@vinoteca.test",
+  "passwordHash": "$2b$10$oO49PP/MZVITk62zdvQEOuly8EKhhlMn9aZ0DBWGaUf.wzTkAsqqK",
+  "rol": "cliente",
+  "direcciones": [],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1792750773119"
+   }
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b5b2a37e45f66b84e9"
+  },
+  "nombre": "Alejo",
+  "apellido": "Accesorios",
+  "email": "demo-accesorios@vinoteca.test",
+  "passwordHash": "$2b$10$iBo1ZZMvtdjqx5/UkAnEqeuJ7zOx7GkzS8gt3XeQaIrGWQgKg3MhO",
+  "rol": "cliente",
+  "direcciones": [],
+  "activo": true,
+  "creadoEn": {
+   "$date": {
+    "$numberLong": "1792750773178"
+   }
+  }
+ }
+]

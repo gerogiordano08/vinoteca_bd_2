@@ -1,0 +1,57 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "nombre": "Bodega de ejemplo",
+  "provincia": "Mendoza",
+  "region": "Valle de Uco",
+  "descripcion": "Bodega familiar de altura.",
+  "logoUrl": "/img/logo.svg",
+  "activa": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f6"
+  },
+  "nombre": "Finca Los Álamos",
+  "provincia": "Mendoza",
+  "region": "Luján de Cuyo",
+  "descripcion": "Viñedos antiguos de la primera zona.",
+  "logoUrl": "/img/logo.svg",
+  "activa": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f7"
+  },
+  "nombre": "Bodega Cerro Azul",
+  "provincia": "San Juan",
+  "region": "Valle de Pedernal",
+  "descripcion": "Vinos de clima frío y suelos calcáreos.",
+  "logoUrl": "/img/logo.svg",
+  "activa": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f8"
+  },
+  "nombre": "Viñas Calchaquíes",
+  "provincia": "Salta",
+  "region": "Valles Calchaquíes",
+  "descripcion": "Viñedos de gran altura en Cafayate.",
+  "logoUrl": "/img/logo.svg",
+  "activa": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22f9"
+  },
+  "nombre": "Bodega Viento Sur",
+  "provincia": "Neuquén",
+  "region": "Patagonia",
+  "descripcion": "Vinos patagónicos de perfil fresco.",
+  "logoUrl": "/img/logo.svg",
+  "activa": true
+ }
+]

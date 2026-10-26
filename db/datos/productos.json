@@ -1,0 +1,1055 @@
+[
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22fa"
+  },
+  "sku": "VIN-MAL-RES",
+  "nombre": "Malbec Reserva",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "12"
+  },
+  "destacado": true,
+  "descripcionCorta": "Un Malbec de perfil frutado, pensado para acompañar tus encuentros.",
+  "descripcion": "Malbec de altura con doce meses de crianza en barrica. Notas de ciruela, violetas y un final suave.",
+  "precio": {
+   "$numberDecimal": "18500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Malbec",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Valle de Uco",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "14.00"
+   },
+   "maridajes": [
+    "Carnes rojas",
+    "Pastas",
+    "Quesos duros"
+   ],
+   "temperaturaServicio": "16 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22fb"
+  },
+  "sku": "VIN-CAB-SAU",
+  "nombre": "Cabernet Sauvignon",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "15"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto estructurado, con notas de pimiento y frutos negros.",
+  "descripcion": "Cabernet Sauvignon de viñedos de Luján de Cuyo, con taninos firmes y buena guarda.",
+  "precio": {
+   "$numberDecimal": "17800.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f6"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Cabernet Sauvignon",
+   "cosecha": {
+    "$numberInt": "2022"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Luján de Cuyo",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.80"
+   },
+   "maridajes": [
+    "Asado",
+    "Cordero"
+   ],
+   "temperaturaServicio": "17 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22fc"
+  },
+  "sku": "VIN-CHA-JOV",
+  "nombre": "Chardonnay Joven",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "18"
+  },
+  "destacado": true,
+  "descripcionCorta": "Blanco fresco y frutado, ideal para el aperitivo.",
+  "descripcion": "Chardonnay sin paso por madera, con notas de durazno blanco y buena acidez.",
+  "precio": {
+   "$numberDecimal": "14200.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-blanco.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Chardonnay",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Tupungato",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.00"
+   },
+   "maridajes": [
+    "Pescados",
+    "Ensaladas"
+   ],
+   "temperaturaServicio": "8 a 10 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22fd"
+  },
+  "sku": "VIN-MAL-CLA",
+  "nombre": "Malbec Clásico",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "40"
+  },
+  "destacado": false,
+  "descripcionCorta": "El Malbec de todos los días, amable y frutado.",
+  "descripcion": "Malbec joven de Maipú, sin crianza, para disfrutar en cualquier comida.",
+  "precio": {
+   "$numberDecimal": "9800.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f6"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Malbec",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Maipú",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.50"
+   },
+   "maridajes": [
+    "Pizzas",
+    "Empanadas"
+   ],
+   "temperaturaServicio": "15 a 17 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22fe"
+  },
+  "sku": "VIN-BON",
+  "nombre": "Bonarda",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "25"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto ligero y especiado, muy fácil de tomar.",
+  "descripcion": "Bonarda de San Juan con notas de frutos rojos y un toque de pimienta.",
+  "precio": {
+   "$numberDecimal": "8900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f7"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Bonarda",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "San Juan",
+   "origenZona": "Valle de Tulum",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.20"
+   },
+   "maridajes": [
+    "Embutidos",
+    "Pastas"
+   ],
+   "temperaturaServicio": "15 a 16 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee22ff"
+  },
+  "sku": "VIN-TOR",
+  "nombre": "Torrontés",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "22"
+  },
+  "destacado": false,
+  "descripcionCorta": "Blanco aromático del norte, floral y refrescante.",
+  "descripcion": "Torrontés de Cafayate con notas de jazmín y cítricos.",
+  "precio": {
+   "$numberDecimal": "9500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-blanco.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f8"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Torrontés",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "Salta",
+   "origenZona": "Cafayate",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.00"
+   },
+   "maridajes": [
+    "Comida picante",
+    "Sushi"
+   ],
+   "temperaturaServicio": "8 a 10 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2300"
+  },
+  "sku": "VIN-SYR",
+  "nombre": "Syrah",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "14"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto intenso con notas de aceituna negra y especias.",
+  "descripcion": "Syrah del Valle de Pedernal, con crianza breve en roble.",
+  "precio": {
+   "$numberDecimal": "11200.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f7"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Syrah",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "San Juan",
+   "origenZona": "Valle de Pedernal",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "14.00"
+   },
+   "maridajes": [
+    "Carnes de caza",
+    "Guisos"
+   ],
+   "temperaturaServicio": "16 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2301"
+  },
+  "sku": "VIN-PIN-NOI",
+  "nombre": "Pinot Noir",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "9"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto delicado y elegante de la Patagonia.",
+  "descripcion": "Pinot Noir de San Patricio del Chañar con notas de cereza y tierra húmeda.",
+  "precio": {
+   "$numberDecimal": "16900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f9"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Pinot Noir",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "Neuquén",
+   "origenZona": "San Patricio del Chañar",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.50"
+   },
+   "maridajes": [
+    "Salmón",
+    "Hongos"
+   ],
+   "temperaturaServicio": "14 a 16 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2302"
+  },
+  "sku": "VIN-ROS-MAL",
+  "nombre": "Rosado de Malbec",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "16"
+  },
+  "destacado": false,
+  "descripcionCorta": "Rosado seco y vibrante, para tardes de verano.",
+  "descripcion": "Rosado de Malbec de prensado directo, con notas de frutilla y pomelo rosado.",
+  "precio": {
+   "$numberDecimal": "10400.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-rosado.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "detalleVino": {
+   "color": "Rosado",
+   "varietal": "Malbec",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Valle de Uco",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "12.50"
+   },
+   "maridajes": [
+    "Tapeo",
+    "Ensaladas"
+   ],
+   "temperaturaServicio": "8 a 10 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2303"
+  },
+  "sku": "VIN-SAU-BLA",
+  "nombre": "Sauvignon Blanc",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "11"
+  },
+  "destacado": false,
+  "descripcionCorta": "Blanco herbal y cítrico, de acidez marcada.",
+  "descripcion": "Sauvignon Blanc patagónico con notas de ruda y lima.",
+  "precio": {
+   "$numberDecimal": "12600.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-blanco.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f9"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Sauvignon Blanc",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "Neuquén",
+   "origenZona": "Patagonia",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "12.80"
+   },
+   "maridajes": [
+    "Mariscos",
+    "Quesos de cabra"
+   ],
+   "temperaturaServicio": "7 a 9 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2304"
+  },
+  "sku": "VIN-CAB-FRA",
+  "nombre": "Cabernet Franc Gran Reserva",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "6"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto de guarda, complejo y especiado.",
+  "descripcion": "Cabernet Franc con dieciocho meses en barrica francesa. Edición numerada.",
+  "precio": {
+   "$numberDecimal": "32500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f6"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Cabernet Franc",
+   "cosecha": {
+    "$numberInt": "2021"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Gualtallary",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "14.50"
+   },
+   "maridajes": [
+    "Carnes asadas",
+    "Quesos estacionados"
+   ],
+   "temperaturaServicio": "17 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2305"
+  },
+  "sku": "VIN-BLE-ALT",
+  "nombre": "Blend de Altura",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "8"
+  },
+  "destacado": false,
+  "descripcionCorta": "Corte de Malbec, Cabernet y Tannat de los Valles Calchaquíes.",
+  "descripcion": "Blend de viñedos a más de 2.000 metros, intenso y fresco a la vez.",
+  "precio": {
+   "$numberDecimal": "24800.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f8"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Blend",
+   "cosecha": {
+    "$numberInt": "2022"
+   },
+   "origenProvincia": "Salta",
+   "origenZona": "Cafayate",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "14.20"
+   },
+   "maridajes": [
+    "Locro",
+    "Carnes rojas"
+   ],
+   "temperaturaServicio": "16 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2306"
+  },
+  "sku": "VIN-MER",
+  "nombre": "Merlot",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "0"
+  },
+  "destacado": false,
+  "descripcionCorta": "Tinto redondo y suave, con notas de ciruela madura.",
+  "descripcion": "Merlot del Alto Valle de Río Negro.",
+  "precio": {
+   "$numberDecimal": "10900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f9"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Merlot",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "Río Negro",
+   "origenZona": "Alto Valle",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "13.20"
+   },
+   "maridajes": [
+    "Pollo",
+    "Pastas"
+   ],
+   "temperaturaServicio": "15 a 17 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2307"
+  },
+  "sku": "VIN-MAL-LIM",
+  "nombre": "Malbec Edición Limitada 2019",
+  "tipoProducto": "vino",
+  "stockActual": {
+   "$numberInt": "2"
+  },
+  "destacado": true,
+  "descripcionCorta": "Edición discontinuada.",
+  "descripcion": "Partida limitada retirada de la venta.",
+  "precio": {
+   "$numberDecimal": "45000.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f2"
+  },
+  "imagenes": [
+   "/img/productos/botella-tinto.svg"
+  ],
+  "activo": false,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "detalleVino": {
+   "color": "Tinto",
+   "varietal": "Malbec",
+   "cosecha": {
+    "$numberInt": "2019"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Valle de Uco",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "14.50"
+   },
+   "maridajes": [
+    "Carnes rojas"
+   ],
+   "temperaturaServicio": "17 a 18 °C"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2308"
+  },
+  "sku": "ESP-BRU-NAT",
+  "nombre": "Brut Nature",
+  "tipoProducto": "espumante",
+  "stockActual": {
+   "$numberInt": "10"
+  },
+  "destacado": true,
+  "descripcionCorta": "Espumante seco de burbuja fina, elaborado por método tradicional.",
+  "descripcion": "Corte de Chardonnay y Pinot Noir con veinticuatro meses sobre borras.",
+  "precio": {
+   "$numberDecimal": "21000.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f3"
+  },
+  "imagenes": [
+   "/img/productos/botella-espumante.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f5"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Chardonnay",
+   "cosecha": {
+    "$numberInt": "2022"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Tupungato",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "12.50"
+   },
+   "maridajes": [
+    "Ostras",
+    "Aperitivos"
+   ],
+   "temperaturaServicio": "6 a 8 °C",
+   "estiloEspumante": "Brut Nature"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2309"
+  },
+  "sku": "ESP-EXT-BRU",
+  "nombre": "Extra Brut",
+  "tipoProducto": "espumante",
+  "stockActual": {
+   "$numberInt": "13"
+  },
+  "destacado": false,
+  "descripcionCorta": "Espumante equilibrado, ideal para brindar.",
+  "descripcion": "Extra Brut de método Charmat largo, fresco y frutado.",
+  "precio": {
+   "$numberDecimal": "16500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f3"
+  },
+  "imagenes": [
+   "/img/productos/botella-espumante.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f6"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Chardonnay",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "Mendoza",
+   "origenZona": "Luján de Cuyo",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "12.00"
+   },
+   "maridajes": [
+    "Entradas",
+    "Postres frutales"
+   ],
+   "temperaturaServicio": "6 a 8 °C",
+   "estiloEspumante": "Extra Brut"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230a"
+  },
+  "sku": "ESP-BRU-ROS",
+  "nombre": "Brut Rosé",
+  "tipoProducto": "espumante",
+  "stockActual": {
+   "$numberInt": "7"
+  },
+  "destacado": false,
+  "descripcionCorta": "Espumante rosado con aromas de frutos rojos.",
+  "descripcion": "Brut Rosé de Pinot Noir patagónico.",
+  "precio": {
+   "$numberDecimal": "18900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f3"
+  },
+  "imagenes": [
+   "/img/productos/botella-espumante.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f9"
+  },
+  "detalleVino": {
+   "color": "Rosado",
+   "varietal": "Pinot Noir",
+   "cosecha": {
+    "$numberInt": "2023"
+   },
+   "origenProvincia": "Neuquén",
+   "origenZona": "Patagonia",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "12.00"
+   },
+   "maridajes": [
+    "Salmón",
+    "Frutillas"
+   ],
+   "temperaturaServicio": "6 a 8 °C",
+   "estiloEspumante": "Brut"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230b"
+  },
+  "sku": "ESP-DUL-NAT",
+  "nombre": "Dulce Natural",
+  "tipoProducto": "espumante",
+  "stockActual": {
+   "$numberInt": "20"
+  },
+  "destacado": false,
+  "descripcionCorta": "Espumante dulce y aromático, para el postre.",
+  "descripcion": "Espumante de Moscatel de Alejandría, de baja graduación.",
+  "precio": {
+   "$numberDecimal": "9900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f3"
+  },
+  "imagenes": [
+   "/img/productos/botella-espumante.svg"
+  ],
+  "activo": true,
+  "bodegaId": {
+   "$oid": "6adb34b429cffdc485ee22f7"
+  },
+  "detalleVino": {
+   "color": "Blanco",
+   "varietal": "Moscatel",
+   "cosecha": {
+    "$numberInt": "2024"
+   },
+   "origenProvincia": "San Juan",
+   "origenZona": "Valle de Tulum",
+   "contenidoMl": {
+    "$numberInt": "750"
+   },
+   "graduacionAlcohol": {
+    "$numberDecimal": "9.50"
+   },
+   "maridajes": [
+    "Postres",
+    "Frutas"
+   ],
+   "temperaturaServicio": "5 a 7 °C",
+   "estiloEspumante": "Dulce"
+  }
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230c"
+  },
+  "sku": "ACC-COP-CRI",
+  "nombre": "Copa de cristal",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "24"
+  },
+  "destacado": true,
+  "descripcionCorta": "Para disfrutar cada aroma.",
+  "descripcion": "Copa de cristal transparente, ideal para servir vinos tintos y blancos.",
+  "detalleAccesorio": {
+   "material": "Cristal",
+   "unidadVenta": "1 unidad",
+   "detalles": "Capacidad: 450 ml; Cuidado: Lavado a mano"
+  },
+  "precio": {
+   "$numberDecimal": "7500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/copa.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230d"
+  },
+  "sku": "ACC-SAC-CLA",
+  "nombre": "Sacacorchos clásico",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "30"
+  },
+  "destacado": false,
+  "descripcionCorta": "Sacacorchos de doble palanca, firme y duradero.",
+  "descripcion": "Sacacorchos de acero con apertura en dos tiempos y abridor de chapitas.",
+  "detalleAccesorio": {
+   "material": "Acero",
+   "unidadVenta": "1 unidad",
+   "detalles": "Mecanismo: Doble palanca; Incluye: Cortacápsulas"
+  },
+  "precio": {
+   "$numberDecimal": "6200.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/sacacorchos.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230e"
+  },
+  "sku": "ACC-DEC-VID",
+  "nombre": "Decantador de vidrio",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "5"
+  },
+  "destacado": false,
+  "descripcionCorta": "Oxigena el vino y realza sus aromas.",
+  "descripcion": "Decantador de vidrio soplado de base ancha.",
+  "detalleAccesorio": {
+   "material": "Vidrio",
+   "unidadVenta": "1 unidad",
+   "detalles": "Capacidad: 1.500 ml; Cuidado: Lavado a mano"
+  },
+  "precio": {
+   "$numberDecimal": "24500.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/decantador.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee230f"
+  },
+  "sku": "ACC-SET-COP",
+  "nombre": "Set de 6 copas",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "6"
+  },
+  "destacado": false,
+  "descripcionCorta": "Seis copas de cristal en caja de regalo.",
+  "descripcion": "Set de copas universales de cristal para tintos, blancos y espumantes.",
+  "detalleAccesorio": {
+   "material": "Cristal",
+   "unidadVenta": "Caja de 6 unidades",
+   "detalles": "Capacidad: 450 ml; Cuidado: Apto lavavajillas"
+  },
+  "precio": {
+   "$numberDecimal": "39900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/copa.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2310"
+  },
+  "sku": "ACC-TAP-VAC",
+  "nombre": "Tapón al vacío",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "50"
+  },
+  "destacado": false,
+  "descripcionCorta": "Conserva el vino abierto por más días.",
+  "descripcion": "Tapones con bomba de vacío para conservar botellas abiertas.",
+  "detalleAccesorio": {
+   "material": "Silicona y acero",
+   "unidadVenta": "Pack de 2",
+   "detalles": "Uso: Botellas de 750 ml"
+  },
+  "precio": {
+   "$numberDecimal": "3900.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/accesorio.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2311"
+  },
+  "sku": "ACC-ENF-BOT",
+  "nombre": "Enfriador de botellas",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "9"
+  },
+  "destacado": false,
+  "descripcionCorta": "Mantiene la temperatura ideal en la mesa.",
+  "descripcion": "Enfriador de doble pared de acero inoxidable.",
+  "detalleAccesorio": {
+   "material": "Acero inoxidable",
+   "unidadVenta": "1 unidad",
+   "detalles": "Capacidad: 1 botella; Cuidado: Lavado a mano"
+  },
+  "precio": {
+   "$numberDecimal": "14800.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/accesorio.svg"
+  ],
+  "activo": true
+ },
+ {
+  "_id": {
+   "$oid": "6adb34b429cffdc485ee2312"
+  },
+  "sku": "ACC-AIR-VIN",
+  "nombre": "Aireador de vino",
+  "tipoProducto": "accesorio",
+  "stockActual": {
+   "$numberInt": "0"
+  },
+  "destacado": false,
+  "descripcionCorta": "Airea el vino al servirlo, sin esperas.",
+  "descripcion": "Aireador de acrílico con base antigoteo.",
+  "detalleAccesorio": {
+   "material": "Acrílico",
+   "unidadVenta": "1 unidad",
+   "detalles": "Uso: Vinos tintos jóvenes"
+  },
+  "precio": {
+   "$numberDecimal": "8700.00"
+  },
+  "categoriaId": {
+   "$oid": "6adb34b429cffdc485ee22f4"
+  },
+  "imagenes": [
+   "/img/productos/accesorio.svg"
+  ],
+  "activo": true
+ }
+]
