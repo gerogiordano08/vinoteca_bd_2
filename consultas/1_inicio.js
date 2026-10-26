@@ -60,4 +60,37 @@ mostrar('1.5 Inicio personalizado de demo-tintos', () =>
     { _id: 0, usuario: 1, 'carrito.cantidadArticulos': 1, 'productosDestacados.nombre': 1, 'productosDestacados.precio': 1 }
   )
 );
+
+// -----------------------------------------------------------------------------
+// 1.6 Selección propia de productos (escritura, se deshace al final).
+// seleccionProductoIds no admite repetidos (uniqueItems en el validador) y tiene
+// como máximo 4. $addToSet con $each agrega varios productos de una vez y omite
+// los que ya están: no hace falta leer el arreglo antes para evitar duplicados.
+// 'seleccionProductoIds.2': { $exists: false } busca por posición del arreglo
+// una página con 2 productos o menos, así entran los nuevos sin pasar de 4.
+// -----------------------------------------------------------------------------
+const pagina = db.inicio.findOne(
+  { seleccionProductoIds: { $exists: true }, 'seleccionProductoIds.2': { $exists: false } },
+  { 'usuario.nombre': 1, seleccionProductoIds: 1 }
+);
+if (!pagina) {
+  print('\n▸ 1.6 No hay una página con 2 productos elegidos o menos: se omite.');
+} else {
+  const elegidos = pagina.seleccionProductoIds;
+  const nuevo = db.productos.findOne(
+    { activo: true, destacado: true, stockActual: { $gt: 0 }, _id: { $nin: elegidos } },
+    { _id: 1, nombre: 1 }
+  );
+  db.inicio.updateOne(
+    { _id: pagina._id },
+    { $addToSet: { seleccionProductoIds: { $each: [nuevo._id, elegidos[0]] } } }   // elegidos[0] ya está
+  );
+  const despues = db.inicio.findOne({ _id: pagina._id }).seleccionProductoIds;
+  print(`\n▸ 1.6 $addToSet con $each en la selección de ${pagina.usuario.nombre}: ${elegidos.length} → ${despues.length} productos`
+    + ` (se agregó ${nuevo.nombre}; el que ya estaba no se repitió)`);
+
+  // La aplicación recalcula productosDestacados después (sincronizacion.js); acá se deshace.
+  db.inicio.updateOne({ _id: pagina._id }, { $set: { seleccionProductoIds: elegidos } });
+  print(`    deshecho: la selección vuelve a tener ${db.inicio.findOne({ _id: pagina._id }).seleccionProductoIds.length}, como antes`);
+}
 }

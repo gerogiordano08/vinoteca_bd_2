@@ -43,4 +43,29 @@ mostrar('6.4 Resumen de compras de cliente01', () =>
     { $project: { _id: 0 } },
   ])
 );
+
+// -----------------------------------------------------------------------------
+// 6.5 Direcciones (escrituras, se deshacen al final).
+// $push con $each agrega varias direcciones al final del arreglo en una sola
+// operación. $pop con 1 quita el último elemento (con -1 quitaría el primero):
+// sirve para deshacer lo agregado sin conocer la posición exacta.
+// -----------------------------------------------------------------------------
+const cantidadAntes = db.usuarios.findOne({ _id: IDS.ana }).direcciones.length;
+db.usuarios.updateOne({ _id: IDS.ana }, {
+  $push: { direcciones: { $each: [
+    { alias: 'Trabajo', calleNumero: 'San Martín 1200', localidad: 'Mendoza', provincia: 'Mendoza', codigoPostal: '5500', referencias: 'Piso 3' },
+    { alias: 'Casa de mis padres', calleNumero: 'Perú 845', localidad: 'Godoy Cruz', provincia: 'Mendoza', codigoPostal: '5501', referencias: '' },
+  ] } },
+});
+mostrar('6.5 Direcciones de Ana después de $push con $each', () =>
+  db.usuarios.aggregate([
+    { $match: { _id: IDS.ana } },
+    { $project: { _id: 0, cantidad: { $size: '$direcciones' }, alias: '$direcciones.alias' } },
+  ])
+);
+
+db.usuarios.updateOne({ _id: IDS.ana }, { $pop: { direcciones: 1 } });
+db.usuarios.updateOne({ _id: IDS.ana }, { $pop: { direcciones: 1 } });
+const cantidadDespues = db.usuarios.findOne({ _id: IDS.ana }).direcciones.length;
+print(`\n▸ 6.5 $pop: 1 dos veces quitó las dos últimas: quedan ${cantidadDespues} (antes ${cantidadAntes})`);
 }
