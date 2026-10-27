@@ -31,9 +31,21 @@ function plural(n, uno, varios) {
   return `${n} ${n === 1 ? uno : varios}`;
 }
 
+/**
+ * Números de página a mostrar: la primera, la última y `alrededor` de cada lado de la actual.
+ * null marca un salto ("…"). Con 9.030 páginas se dibujan unos 7 enlaces en lugar de 9.030.
+ */
+function paginasVisibles(actual, total, alrededor = 2) {
+  const elegidas = new Set([1, total]);
+  for (let n = actual - alrededor; n <= actual + alrededor; n++) if (n >= 1 && n <= total) elegidas.add(n);
+  const ordenadas = [...elegidas].sort((a, b) => a - b);
+  return ordenadas.flatMap((n, i) => (i > 0 && n - ordenadas[i - 1] > 1 ? [null, n] : [n]));
+}
+
 const fechaLarga = new Intl.DateTimeFormat('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
 
 module.exports = {
+  paginasVisibles,
   precio: formatearPrecio,
   numero: aNumero,
   etiqueta,

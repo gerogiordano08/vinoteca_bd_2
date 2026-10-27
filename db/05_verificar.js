@@ -39,6 +39,12 @@ const debeFallar = (descripcion, fn) => {
 };
 const { _id: _p, ...producto } = db.productos.findOne({ sku: 'VIN-MAL-RES' });
 const { _id: _u, ...usuario } = db.usuarios.findOne({ email: 'ana@example.com' });
+// Después de una compra puede no quedar ningún carrito activo: se crea uno temporal y se borra al terminar.
+let carritoTemporal = null;
+if (!db.carritos.findOne({ estado: 'activo' })) {
+  const { _id, ...otro } = db.carritos.findOne();
+  carritoTemporal = db.carritos.insertOne({ ...otro, estado: 'activo' }).insertedId;
+}
 const { _id: _c, ...carrito } = db.carritos.findOne({ estado: 'activo' });
 const { _id: _i, ...inicio } = db.inicio.findOne();
 const { _id: _k, ...catalogo } = db.catalogo.findOne();
@@ -51,6 +57,7 @@ debeFallar('pedido con estado inexistente', () => db.pedidos.insertOne({ ...pedi
 debeFallar('SKU repetido (índice único sku_unico)', () => db.productos.insertOne({ ...producto }));
 debeFallar('email repetido (índice único email_unico)', () => db.usuarios.insertOne({ ...usuario }));
 debeFallar('segundo carrito activo del mismo usuario (índice parcial)', () => db.carritos.insertOne({ ...carrito }));
+if (carritoTemporal) db.carritos.deleteOne({ _id: carritoTemporal });
 debeFallar('página de Inicio de un visitante (visitanteId)', () => db.inicio.insertOne({ ...inicio, visitanteId: 'abc', usuario: { usuarioId: new ObjectId() } }));
 debeFallar('Catálogo que guarda copias de productos', () => db.catalogo.insertOne({ ...catalogo, usuario: { usuarioId: new ObjectId() }, productos: [] }));
 

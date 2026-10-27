@@ -4,7 +4,7 @@ Requisito de la consigna: implementar políticas de resguardo. Usa las herramien
 
 ## Qué se resguarda
 
-La base completa, `vinoteca`: las nueve colecciones con sus validadores e índices. `mongodump` guarda los datos en BSON, así que conserva tipos como `Decimal128`, `ObjectId` y fechas sin pérdida. Por eso se usa para el backup. `mongoexport` genera JSON legible y sirve para revisar o migrar datos, pero no reemplaza al backup.
+La base completa, `vinoteca`: las nueve colecciones del modelo con sus validadores e índices, la serie temporal `historial_precios` (se restaura como serie temporal) y la vista `pagina_vinos`. `mongodump` guarda los datos en BSON, así que conserva tipos como `Decimal128`, `ObjectId` y fechas sin pérdida. Por eso se usa para el backup. `mongoexport` genera JSON legible y sirve para revisar o migrar datos, pero no reemplaza al backup.
 
 ## Frecuencia y retención
 
