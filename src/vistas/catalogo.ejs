@@ -74,9 +74,11 @@
         <% if (pg.totalPaginas > 1) { %>
           <nav class="paginacion" aria-label="Páginas de resultados">
             <% if (pg.paginaActual > 1) { %><a class="boton boton--borde" href="<%= enlacePagina(pg.paginaActual - 1) %>">← Anterior</a><% } %>
-            <% for (let n = 1; n <= pg.totalPaginas; n++) { %>
+            <% v.paginasVisibles(pg.paginaActual, pg.totalPaginas).forEach((n) => { %>
+              <% if (n === null) { %><span class="paginacion__salto" aria-hidden="true">…</span><% } else { %>
               <a class="paginacion__numero <%= n === pg.paginaActual ? 'paginacion__numero--actual' : '' %>" href="<%= enlacePagina(n) %>" <%- n === pg.paginaActual ? 'aria-current="page"' : '' %>><%= n %></a>
-            <% } %>
+              <% } %>
+            <% }) %>
             <% if (pg.paginaActual < pg.totalPaginas) { %><a class="boton boton--borde" href="<%= enlacePagina(pg.paginaActual + 1) %>">Siguiente →</a><% } %>
           </nav>
         <% } %>

@@ -19,11 +19,14 @@ Medición del 23/10/2026, MongoDB 9.0.2, sobre la base creada con `mongosh db/se
 ## Comandos de la clase
 
 ```js
+const activas = db.categorias.find({ activa: true }).toArray().map(c => c._id)
 db.productos.getIndexes()
 db.productos.dropIndex("catalogo_categoria_destacados")
-db.productos.find({ activo: true }).sort({ destacado: -1, nombre: 1, _id: 1 }).limit(12).explain("executionStats").executionStats.executionTimeMillis
+db.productos.find({ activo: true, categoriaId: { $in: activas } }).sort({ destacado: -1, nombre: 1, _id: 1 }).limit(12).explain("executionStats").executionStats.executionTimeMillis
 db.productos.createIndex({ activo: 1, categoriaId: 1, destacado: -1, nombre: 1, _id: 1 }, { name: "catalogo_categoria_destacados" })
 ```
+
+El filtro tiene que incluir `categoriaId`, como la consulta de la aplicación. El índice empieza por `activo` y `categoriaId`. Si se filtra solo por `activo`, MongoDB no puede usar el resto del índice para el orden y ordena en memoria (etapa `SORT`, unos 230 ms). Con `categoriaId: { $in: activas }` combina los recorridos ya ordenados de cada categoría (`SORT_MERGE`), examina 12 documentos y tarda alrededor de 1 ms.
 
 ## Resultados
 

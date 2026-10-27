@@ -144,6 +144,7 @@ fieldset.panel > legend + * { clear: both; }
 .paginacion { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 .paginacion__numero { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--borde); border-radius: var(--radio); background: #fff; color: var(--vino); text-decoration: none; }
 .paginacion__numero--actual { background: var(--vino); color: #fff; border-color: var(--vino-oscuro); }
+.paginacion__salto { display: grid; place-items: center; width: 24px; height: 44px; color: var(--suave); }
 
 /* Detalle de producto */
 .detalle { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
